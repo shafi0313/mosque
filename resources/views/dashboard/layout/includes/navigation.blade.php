@@ -24,6 +24,14 @@
         </ul>
     </li>
     <li>
+        <a href="{{ route('admin.slider.index') }}">
+            <div class="parent-icon">
+                <ion-icon name="home-sharp"></ion-icon>
+            </div>
+            <div class="menu-title">Slider</div>
+        </a>
+    </li>
+    <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon">
                 <ion-icon name="bag-handle-sharp"></ion-icon>
@@ -54,11 +62,11 @@
             <div class="menu-title">Settings</div>
         </a>
         <ul>
-            <li class="{{ activeNav('admin.permission.*') }}">
+            {{-- <li class="{{ activeNav('admin.permission.*') }}">
                 <a href="{{ route('admin.role.index') }}">
                     <ion-icon name="ellipse-outline"></ion-icon>Roles & Permission
                 </a>
-            </li>
+            </li> --}}
             <li class="{{ activeNav('admin.backup.*') }}">
                 <a href="{{ route('admin.backup.password') }}">
                     <ion-icon name="ellipse-outline"></ion-icon>App DB Backup

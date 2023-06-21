@@ -12,6 +12,18 @@
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-md-6">
+                            <label for="role" class="form-label required">Permission </label>
+                            <select class="form-select" name="role" required>
+                                <option selected disabled value="">Choose...</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->name }}">{{ ucfirst($role->name) }}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('role'))
+                                <div class="alert alert-danger">{{ $errors->first('role') }}</div>
+                            @endif
+                        </div>
+                        <div class="col-md-6">
                             <label for="name" class="form-label required">Name </label>
                             <input type="search" name="name" class="form-control" value="{{ old('name') }}"
                                 required />

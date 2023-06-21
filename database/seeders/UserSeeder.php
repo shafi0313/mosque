@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     {
         $admin = User::create([
             'name' => 'Developer',
-            'email' => 'admin@shafi95.com',
+            'email' => 'admin@app.com',
             'role' => 1,
             'phone' => 1725848515,
             'address' => 'Hatboalia, Alamdanga, Chuadaga',
