@@ -1,16 +1,16 @@
 @if ($type == 'ajax-edit')
-    <button data-route="{{ $route }}" data-value="{{ $row->id }}" class='text-primary _btn' onclick="ajaxEdit(this)"
-        title='@lang('app.edit')'><i class='fa fa-edit'></i></button>
+    <button data-route="{{ $route }}" data-value="{{ $row->id }}" class='text-primary _btn'
+        onclick="ajaxEdit(this)" title='@lang('app.edit')'><i class='fa fa-edit'></i></button>
 @endif
 
 @if ($type == 'edit')
-    <a href="{{ route($route . '.edit', $row->id) }}" class='text-primary _btn' data-bs-placement="top" title='@lang('app.edit')'><i
-            class='fa fa-edit'></i> </a>
+    <a href="{{ route($route . '.edit', $row->id) }}" class='text-primary _btn' data-bs-placement="top"
+        title='@lang('app.edit')'><i class='fa fa-edit'></i> </a>
 @endif
 
 @if ($type == 'delete')
-    <button data-route="{{ route($route . '.destroy', $row->id) }}" class='_delete text-danger _btn' title='@lang('app.delete')'><i
-            class='fa fa-trash'></i></button>
+    <button data-route="{{ route($route . '.destroy', $row->id) }}" class='_delete text-danger _btn'
+        title='@lang('app.delete')'><i class='fa fa-trash'></i></button>
 @endif
 @if ($type == 'ajax-delete')
     <button data-route="{{ $route }}" data-value="{{ $row->id }}"
@@ -40,11 +40,19 @@
     <span data-route="{{ $route }}"
         style="font-size: 36px;line-height: 1;vertical-align: middle;cursor: pointer;" data-bs-placement="top"
         data-bs-toggle="tooltip" data-bs-original-title="@lang('app.status')" data-value="{{ $row->status }}"
-        onclick="changeStatus(this)" title="@lang('app.status')">
+        onclick="changeStatus(this)" title="{{ $row->status == 1 ? 'Active':'Inactive' }}">
         @if ($row->status == 1)
             <i class="fa fa-toggle-on text-success"></i>
         @else
             <i class="fa fa-toggle-off text-danger"></i>
         @endif
     </span>
+@endif
+
+@if ($type == 'toggle-btn')
+    <label class="custom-switch form-switch mb-0" data-route="{{ $route }}" data-value="{{ $row->status }}"
+        onclick="changeStatus(this)">
+        <input {{ $row->status == 1 ? 'checked' : '' }} type="checkbox" name="switch" class="custom-switch-input">
+        <span class="custom-switch-indicator custom-switch-indicator-md"></span>
+    </label>
 @endif

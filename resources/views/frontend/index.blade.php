@@ -3,119 +3,32 @@
 <section id="main-slider" class="no-margin">
     <div class="carousel slide">
         <ol class="carousel-indicators">
-            <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-            <li data-target="#main-slider" data-slide-to="1"></li>
-            <li data-target="#main-slider" data-slide-to="2"></li>
-            <li data-target="#main-slider" data-slide-to="3"></li>
-            <li data-target="#main-slider" data-slide-to="4"></li>
+            @php $i = 0; @endphp
+            @foreach ($sliders as $key => $slider)
+            <li data-target="#main-slider" data-slide-to="{{ $i++ }}" class="{{ $loop->iteration == 1 ?'active':'' }}"></li>
+            @endforeach
         </ol>
         <div class="carousel-inner">
-            <div class="item active img-responsive" style="background-image:url({{ asset('frontend/images/slider/Cover5.jpg') }})">
-                <div class="container img-responsive">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h1 class="animation animated-item-2">Assalam Alaykum! Welcome to the UWA Muslim
-                                    Students Association.
-                                </h1>
-                                <h2 class="animation animated-item-3">Established in 1989, MSA is the largest club
-                                    on campus,
-                                    representing Muslim students. </h2>
+            @foreach ($sliders as $slider)
+                <div class="item {{ $loop->iteration == 1 ?'active':'' }} img-responsive"
+                    style="background-image:url({{ imagePath('sliders', $slider->image) }})">
+                    <div class="container img-responsive">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-2">{{ $slider->title }}</h1>
+                                    <h2 class="animation animated-item-3">{{ $slider->sub_title }}</h2>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 hidden-xs animation animated-item-4">
-                            <div class="slider-img">
-                                <img src="{{ asset('frontend/images/slider/img1.png') }}" class="img-responsive">
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="{{ imagePath('sliders', $slider->icon) }}" class="img-responsive">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="item" style="background-image:url({{ asset('frontend/images/slider/Cover1.jpg') }})">
-                <div class="container">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h1 class="animation animated-item-1">What is the UWAMSA?</h1>
-                                <h2 class="animation animated-item-2">The UWAMSA is organised by students, for
-                                    students. We organise a
-                                    wide range of educational as well as social events such as tasty barbecues,
-                                    games nights, picnics,
-                                    quiz nights, sports tournaments and of course our annual Community Iftar!
-                                </h2>
-                                <h2 class="animation animated-item-3"><a href="about_mem.html">Meet</a> the
-                                    dedicated team.</h2>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 hidden-xs animation animated-item-4">
-                            <div class="slider-img"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item" style="background-image:url({{ asset('frontend/images/slider/Cover3.jpg') }})">
-                <!--bg3-->
-                <div class="container">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h1 class="animation animated-item-1">What's in it for you?</h1>
-                                <h2 class="animation animated-item-2">The UWAMSA ensures all Muslim staff and
-                                    students have their
-                                    voice heard and their needs met on campus. This is why we maintain the UWA
-                                    Musallah and are
-                                    currently pushing for more halal food. We also promote belonging and friendship
-                                    within the community
-                                    as well as unity and collaboration. </h2>
-                                <h2 class="animation animated-item-2"><a href="join_us.html">Join us</a> now to
-                                    keep active and
-                                    involved within the
-                                    community.</h2>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 hidden-xs animation animated-item-4">
-                            <div class="slider-img"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item" style="background-image:url({{ asset('frontend/images/slider/Cover4.jpg') }})">
-                <!--bg3-->
-                <div class="container">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h1 class="animation animated-item-1">Introducing the MSA Newsletter.</h1>
-                                <h2 class="animation animated-item-2"><a href="join_us.html">Join us</a> to
-                                    subsribe to our brand new
-                                    monthly newsletter, get involved and stay updated.</h2>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 hidden-xs animation animated-item-4">
-                            <div class="slider-img"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item" style="background-image:url({{ asset('frontend/images/slider/Cover2.jpg') }})">
-                <div class="container">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h1 class="animation animated-item-1">Most Inclusive Event Award</h1>
-                                <h2 class="animation animated-item-2">Thanks to our wonderful volunteers and
-                                    community, the UWAMSA won
-                                    the 'Most Inclusive Event Award' in 2013, 2015 &amp; 2016 for our annual
-                                    Community Iftar! </h2>
-                                <p>&nbsp;</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 hidden-xs animation animated-item-4">
-                            <div class="slider-img"> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <a class="prev hidden-xs" href="#main-slider" data-slide="prev">

@@ -42,8 +42,10 @@
             </div>
         </div>
     </div>
-    @include('dashboard.admin_user.create')
+    @include('dashboard.slider.create')
     @push('custom_scripts')
+    {!! JsValidator::formRequest('App\Http\Requests\StoreSliderRequest') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\UpdateSliderRequest') !!}
         <script>
             $(function() {
                 $('#data_table').DataTable({

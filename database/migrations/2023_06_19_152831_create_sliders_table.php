@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('sub_title',1000)->nullable();
             $table->string('image',30);
             $table->string('icon',30)->nullable();
-            $table->boolean('is_active')->default(1);
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BlankController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SliderStatusController;
 use App\Http\Controllers\Setting\AppDbBackupController;
 use App\Http\Controllers\Setting\Permission\RoleController;
 use App\Http\Controllers\Setting\Permission\PermissionController;
@@ -43,5 +44,6 @@ Route::resource('/admin-user', AdminUserController::class,[
     ]
 ]);
 
-Route::resource('slider', SliderController::class)->except(['create','show']);
+Route::resource('/slider', SliderController::class)->except(['create','show']);
+Route::patch('/slider/status/{id}', SliderStatusController::class)->name('slider.status');
 

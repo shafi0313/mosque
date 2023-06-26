@@ -22,15 +22,17 @@
     <link href="{{ asset('backend/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/css/icons.css') }}" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/css/bootstrap5-toggle.min.css" rel="stylesheet">
 
     {{-- Theme Styles --}}
     <link href="{{ asset('backend/css/dark-theme.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/css/semi-dark.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/css/header-colors.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('backend/css/semi-dark.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/css/header-colors.css') }}" rel="stylesheet" /> --}}
 
     <title>@yield('title') | {{ env('APP_NAME') }}</title>
     {{-- <title>@yield('title') | {{ config('app.locale')=='en'?setting('app_name'):setting('app_name_b') }}</title> --}}
@@ -43,10 +45,13 @@
         <aside class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
-                    <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('backend/images/logo-icon-2.png') }}" class="logo-icon" alt="logo icon"></a>                    
+                    <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('backend/images/logo-icon-2.png') }}"
+                            class="logo-icon" alt="logo icon"></a>
                 </div>
                 <div>
-                    <a href="{{ route('admin.dashboard') }}"><h4 class="logo-text">SYN-UI</h4></a>                    
+                    <a href="{{ route('admin.dashboard') }}">
+                        <h4 class="logo-text">SYN-UI</h4>
+                    </a>
                 </div>
                 <div class="toggle-icon ms-auto">
                     <ion-icon name="menu-sharp"></ion-icon>
@@ -96,16 +101,19 @@
     <script src="{{ asset('backend/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('backend/js/bootstrap.bundle.min.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    {{-- <!-- Laravel Javascript Validation --> --}}
+    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
     <script src="{{ asset('backend/js/plugins-init.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/js/bootstrap5-toggle.ecmas.min.js"></script>
     @include('dashboard.layout.includes.data_table_js')
     @include('sweetalert::alert')
+
     @stack('custom_scripts')
     {{-- Main JS --}}
     <script src="{{ asset('backend/js/main.js') }}"></script>
-
 </body>
 
 </html>

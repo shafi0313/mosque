@@ -63,42 +63,42 @@ $(function() {
 //     }
 // }
 
-// function changeStatus(arg) {
-//     let status = $(arg);
-//     swal({
-//             title: "Are you sure?",
-//             text: "This change will affect all records!",
-//             icon: "warning",
-//             buttons: true,
-//             dangerMode: true,
-//         })
-//         .then((willDelete) => {
-//             if (willDelete) {
-//                 $.ajax({
-//                     url: status.data('route'),
-//                     type: 'post',
-//                     data: {
-//                         status: status.data('value'),
-//                     },
-//                     success: res => {
-//                         swal({
-//                             icon: 'success',
-//                             title: 'Success',
-//                             text: res.message
-//                         });
-//                         $('.table').DataTable().ajax.reload();
-//                     },
-//                     error: err => {
-//                         swal({
-//                             icon: 'error',
-//                             title: 'Oops...',
-//                             text: err.responseJSON.message
-//                         });
-//                     }
-//                 });
-//             }
-//         });
-// }
+function changeStatus(arg) {
+    let status = $(arg);
+    swal({
+        title: "Are you sure?",
+        text: "This change will affect all records!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: status.data('route'),
+                    type: 'PATCH',
+                    data: {
+                        status: status.data('value'),
+                    },
+                    success: res => {
+                        swal({
+                            icon: 'success',
+                            title: 'Success',
+                            text: res.message
+                        });
+                        $('.table').DataTable().ajax.reload();
+                    },
+                    error: err => {
+                        swal({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: err.responseJSON.message
+                        });
+                    }
+                });
+            }
+        });
+}
 
 
 function ajaxDelete(arg, type) {
