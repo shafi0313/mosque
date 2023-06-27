@@ -4,9 +4,11 @@ use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Admin\BlankController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EventStatusController;
 use App\Http\Controllers\Admin\SliderStatusController;
 use App\Http\Controllers\Setting\AppDbBackupController;
 use App\Http\Controllers\Setting\Permission\RoleController;
@@ -46,4 +48,7 @@ Route::resource('/admin-user', AdminUserController::class,[
 
 Route::resource('/slider', SliderController::class)->except(['create','show']);
 Route::patch('/slider/status/{id}', SliderStatusController::class)->name('slider.status');
+
+Route::resource('/event', EventController::class)->except(['create','show']);
+Route::patch('/event/status/{event}', EventStatusController::class)->name('event.status');
 

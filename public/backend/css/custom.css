@@ -55,3 +55,10 @@
 .footer {
     text-align: center !important;
 }
+
+.form-switch .form-check-input {
+    width: 4em;
+    margin-left: 0;
+    margin-right: 8px;
+    height: 18px;
+}

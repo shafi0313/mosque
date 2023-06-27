@@ -29,6 +29,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/css/bootstrap5-toggle.min.css" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
+
     {{-- Theme Styles --}}
     <link href="{{ asset('backend/css/dark-theme.css') }}" rel="stylesheet" />
     {{-- <link href="{{ asset('backend/css/semi-dark.css') }}" rel="stylesheet" />
@@ -109,6 +112,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/js/bootstrap5-toggle.ecmas.min.js"></script>
     @include('dashboard.layout.includes.data_table_js')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     @include('sweetalert::alert')
 
     @stack('custom_scripts')

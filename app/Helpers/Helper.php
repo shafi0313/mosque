@@ -79,9 +79,6 @@ if (!function_exists('imageUpdate')) {
 //     }
 // }
 
-
-
-
 if(!function_exists('profileImg')){
     function profileImg(){
         if(file_exists(asset('uploads/images/user/'.user()->image))){
@@ -91,7 +88,6 @@ if(!function_exists('profileImg')){
         }
     }
 }
-
 
 if (!function_exists('imagePath')) {
     function imagePath($folder, $image)

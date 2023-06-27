@@ -1,5 +1,25 @@
 ﻿@extends('frontend.layout.app')
 @section('content')
+<style>
+    .more_info {
+        color: white;
+        font-weight: 500px;
+        border-radius: 50px;
+        background-color: #03449e;
+        width: 50%;
+        position: absolute;
+        padding: 4px 4px 4px 4px;
+        top: 88%;
+        left: 21%;
+
+    }
+
+    .more_info:hover {
+        padding: 5px 5px 5px 5px;
+        transition: 0.3s ease-in-out;
+    }
+</style>
+{{-- Slider --}}
 <section id="main-slider" class="no-margin">
     <div class="carousel slide">
         <ol class="carousel-indicators">
@@ -38,6 +58,7 @@
         <i class="fa fa-chevron-right"></i>
     </a>
 </section>
+{{-- !Slider --}}
 
 <section id="services" class="service-item">
     <div class="container">
@@ -47,39 +68,21 @@
             <!-- بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم-->
         </div>
         <div class="row">
+            @foreach ($events as $event)
             <div class="col-sm-6 col-md-4 center-block">
-                <div
-                    class="media services-wrap wow fadeInDown table-responsive img-responsive center-block center">
-                    <div class="pull-left"> <img src="{{ asset('frontend/images/sundowner_s1_2023.jpg') }}" width="400"
-                            class="img-responsive fa-align-center center-block">
-                        <h3 class="col-lg-12 sundowner">Sundowner BBQ</h3><br />
-                        <h3 class="col-lg-12 ssundowner">3rd March 2023</h3><br />
+                <div class="media services-wrap wow fadeInDown table-responsive img-responsive center-block center">
+                    <div class="pull-left"> 
+                        <img src="{{ imagePath('events', $event->image) }}" width="400" class="img-responsive fa-align-center center-block">
+                        <h3 class="col-lg-12 sundowner">{{ $event->title }}</h3><br />
+                        <h3 class="col-lg-12 ssundowner">{{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</h3><br />
                         <a href="upcoming_events-2.html">
                             <h5 class="more_info sundowner">See More Info</h5>
-                        </a>
-
-                        <style>
-                            .more_info {
-                                color: white;
-                                font-weight: 500px;
-                                border-radius: 50px;
-                                background-color: #03449e;
-                                width: 50%;
-                                position: absolute;
-                                padding: 4px 4px 4px 4px;
-                                top: 88%;
-                                left: 21%;
-
-                            }
-
-                            .more_info:hover {
-                                padding: 5px 5px 5px 5px;
-                                transition: 0.3s ease-in-out;
-                            }
-                        </style>
+                        </a>                        
                     </div>
                 </div>
             </div>
+            @endforeach
+            
         </div>
         <div class="media-body"> </div>
     </div>
