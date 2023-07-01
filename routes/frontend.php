@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\PrayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,4 @@ use App\Http\Controllers\Frontend\IndexController;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/prayer', [PrayerController::class, 'index'])->name('prayer.index');

@@ -20,7 +20,8 @@
                         <li><a href="about_pmem.html">Past Members</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prayers<i
+                <li><a href="{{ route('frontend.prayer.index') }}">Prayer</a></li>
+                {{-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prayers<i
                             class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="reg_prayers.html">Daily</a></li>
@@ -29,7 +30,7 @@
                         <li></li>
                         <li></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<i
                             class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">

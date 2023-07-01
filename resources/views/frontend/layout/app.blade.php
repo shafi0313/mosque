@@ -38,5 +38,7 @@
     <script src="{{ asset('frontend/js/jquery.isotope.min.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
     <script src="{{ asset('frontend/js/wow.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/prayer-time/jquery.prayer.times.min.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>
