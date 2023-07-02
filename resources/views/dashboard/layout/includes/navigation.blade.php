@@ -33,12 +33,23 @@
         </a>
     </li>
 
+    
+
     <li>
         <a href="{{ route('admin.event.index') }}">
             <div class="parent-icon">
                 <i class="fa-regular fa-calendar-days"></i>
             </div>
             <div class="menu-title">Event</div>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ route('admin.committee-member.index') }}">
+            <div class="parent-icon">
+                <i class="fa-solid fa-images"></i>
+            </div>
+            <div class="menu-title">Committee Member</div>
         </a>
     </li>
 

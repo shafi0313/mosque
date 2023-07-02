@@ -62,3 +62,7 @@
     margin-right: 8px;
     height: 18px;
 }
+
+.form-label {
+    text-transform: capitalize;
+}

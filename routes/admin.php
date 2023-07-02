@@ -7,10 +7,12 @@ use App\Http\Controllers\Admin\BlankController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\CommitteeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventStatusController;
 use App\Http\Controllers\Admin\SliderStatusController;
 use App\Http\Controllers\Setting\AppDbBackupController;
+use App\Http\Controllers\Admin\CommitteeStatusController;
 use App\Http\Controllers\Setting\Permission\RoleController;
 use App\Http\Controllers\Setting\Permission\PermissionController;
 
@@ -50,5 +52,11 @@ Route::resource('/slider', SliderController::class)->except(['create','show']);
 Route::patch('/slider/status/{id}', SliderStatusController::class)->name('slider.status');
 
 Route::resource('/event', EventController::class)->except(['create','show']);
-Route::patch('/event/status/{event}', EventStatusController::class)->name('event.status');
+Route::patch('/event/status/{event}', EventStatusController::class);
 
+Route::resource('/committee-member', CommitteeController::class, [
+    'parameters' => [
+        'committee-member' => 'committee_member'
+    ]
+])->except(['create','show']);
+Route::patch('/committee/status/{Committee}', CommitteeStatusController::class)->name('committee.status');
