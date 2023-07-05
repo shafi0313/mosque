@@ -16,7 +16,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="about_presidentm.html">President's Address</a></li>
                         <li><a href="about_his.html">History</a></li>
-                        <li><a href="">Committee Members</a></li>
+                        <li><a href="{{ route('frontend.about.committee_member') }}">Committee Members</a></li>
                         <li><a href="about_pmem.html">Past Members</a></li>
                     </ul>
                 </li>

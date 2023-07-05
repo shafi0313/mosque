@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\PrayerController;
 
@@ -17,3 +18,8 @@ use App\Http\Controllers\Frontend\PrayerController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/prayer', [PrayerController::class, 'index'])->name('prayer.index');
+Route::get('/committee-member', [CommitteeController::class, 'committeeMember'])->name('committee.index');
+
+Route::controller(AboutController::class)->prefix('about')->name('about.')->group(function(){
+    Route::get('/committee-member', [AboutController::class, 'committeeMember'])->name('committee_member');
+});
