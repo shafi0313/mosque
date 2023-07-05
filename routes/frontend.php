@@ -22,4 +22,5 @@ Route::get('/committee-member', [CommitteeController::class, 'committeeMember'])
 
 Route::controller(AboutController::class)->prefix('about')->name('about.')->group(function(){
     Route::get('/committee-member', [AboutController::class, 'committeeMember'])->name('committee_member');
+    Route::get('/history', [AboutController::class, 'history'])->name('history');
 });

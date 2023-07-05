@@ -1,11 +1,13 @@
 <?php
 
 use App\Models\Slider;
+use App\Models\History;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Admin\BlankController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\HistoryController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\CommitteeController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -52,7 +54,7 @@ Route::resource('/slider', SliderController::class)->except(['create','show']);
 Route::patch('/slider/status/{id}', SliderStatusController::class)->name('slider.status');
 
 Route::resource('/event', EventController::class)->except(['create','show']);
-Route::patch('/event/status/{event}', EventStatusController::class);
+Route::patch('/event/status/{event}', EventStatusController::class)->name('event.status');
 
 Route::resource('/committee-member', CommitteeController::class, [
     'parameters' => [
@@ -60,3 +62,5 @@ Route::resource('/committee-member', CommitteeController::class, [
     ]
 ])->except(['create','show']);
 Route::patch('/committee/status/{Committee}', CommitteeStatusController::class)->name('committee.status');
+
+Route::resource('/history', HistoryController::class)->only(['index','store']);
