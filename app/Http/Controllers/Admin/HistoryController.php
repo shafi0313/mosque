@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\History;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreHistoryRequest;
 
 class HistoryController extends Controller
@@ -84,6 +85,13 @@ class HistoryController extends Controller
             $history->update(['content' => $content]);
         } else {
             History::create(['content' => $content]);
+        }
+        try {
+            Alert::success('Success', 'History Updated Successfully');
+            return back();
+        } catch (\Exception $e) {
+            Alert::error('Error', 'Oops something went wrong, Please try again later');
+            return back();
         }
     }
 }
