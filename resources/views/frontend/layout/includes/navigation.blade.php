@@ -17,7 +17,7 @@
                         <li><a href="about_presidentm.html">President's Address</a></li>
                         <li><a href="{{ route('frontend.about.history') }}">History</a></li>
                         <li><a href="{{ route('frontend.about.committee_member') }}">Committee Members</a></li>
-                        <li><a href="about_pmem.html">Past Members</a></li>
+                        <li><a href="{{ route('frontend.about.pastMember') }}">Past Members</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ route('frontend.prayer.index') }}">Prayer</a></li>

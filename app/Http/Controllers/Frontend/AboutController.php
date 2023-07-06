@@ -11,12 +11,18 @@ class AboutController extends Controller
 {
     public function committeeMember()
     {
-        $committees = Committee::all();
+        $committees = Committee::whereIs_present(1)->get();
         return view('frontend.about.committee_member', compact('committees'));
     }
     public function history()
     {
         $history = History::first()->content;
         return view('frontend.about.history', compact('history'));
+    }
+
+    public function pastMember()
+    {
+        $committees = Committee::whereIs_present(0)->get();
+        return view('frontend.about.past_member', compact('committees'));
     }
 }
