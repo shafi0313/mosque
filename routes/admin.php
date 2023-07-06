@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Slider;
-use App\Models\History;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Admin\BlankController;
@@ -15,13 +13,13 @@ use App\Http\Controllers\Admin\EventStatusController;
 use App\Http\Controllers\Admin\SliderStatusController;
 use App\Http\Controllers\Setting\AppDbBackupController;
 use App\Http\Controllers\Admin\CommitteeStatusController;
+use App\Http\Controllers\Admin\PresidentAddressController;
 use App\Http\Controllers\Setting\Permission\RoleController;
 use App\Http\Controllers\Setting\Permission\PermissionController;
 
 Route::resource('blank', BlankController::class)->except(['store','edit', 'update','delete']);
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
 
 // Global Ajax
 Route::delete('delete-all/{model}', [AjaxController::class, 'deleteAll'])->name('delete_all');
@@ -64,3 +62,8 @@ Route::resource('/committee-member', CommitteeController::class, [
 Route::patch('/committee/status/{Committee}', CommitteeStatusController::class)->name('committee.status');
 
 Route::resource('/history', HistoryController::class)->only(['index','store']);
+Route::resource('/president-address', PresidentAddressController::class, [
+    'parameters' => [
+        'president-address' => 'president_address'
+    ]
+])->only(['index','store']);

@@ -6,9 +6,15 @@ use App\Models\History;
 use App\Models\Committee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\PresidentAddress;
 
 class AboutController extends Controller
 {
+    public function presidentAddress()
+    {
+        $president_address = PresidentAddress::first()->content;
+        return view('frontend.about.president_address', compact('president_address'));
+    }
     public function committeeMember()
     {
         $committees = Committee::whereIs_present(1)->get();

@@ -63,6 +63,15 @@
     </li>
 
     <li>
+        <a href="{{ route('admin.president-address.index') }}">
+            <div class="parent-icon">
+                <i class="fa-solid fa-images"></i>
+            </div>
+            <div class="menu-title">President Address</div>
+        </a>
+    </li>
+
+    <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon">
                 <ion-icon name="bag-handle-sharp"></ion-icon>
