@@ -9,9 +9,7 @@
             </div>
         </div>
     </section>
-
-  
-
+    
     @push('scripts')
     @endpush
 @endsection
