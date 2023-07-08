@@ -61,6 +61,18 @@ if (!function_exists('imageUpdate')) {
     }
 }
 
+if (!function_exists('imagePath')) {
+    function imagePath($folder, $image)
+    {
+        $path = 'uploads/images/'.$folder.'/'.$image;
+        if(@GetImageSize($path)){
+            return asset($path);
+        }else{
+            // return setting('app_logo');
+        }
+    }
+}
+
 // if (!function_exists('fileDestroy')) {
 //     function fileDestroy(string $path, $data)
 //     {
@@ -89,17 +101,6 @@ if(!function_exists('profileImg')){
     }
 }
 
-if (!function_exists('imagePath')) {
-    function imagePath($folder, $image)
-    {
-        $path = 'uploads/images/'.$folder.'/'.$image;
-        if(@GetImageSize($path)){
-            return asset($path);
-        }else{
-            // return setting('app_logo');
-        }
-    }
-}
 
 if (!function_exists('transaction_id')) {
     function transaction_id($src = '', $length = 12)

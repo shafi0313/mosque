@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\HistoryController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\CommitteeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PastMemberController;
 use App\Http\Controllers\Admin\EventStatusController;
 use App\Http\Controllers\Admin\SliderStatusController;
 use App\Http\Controllers\Setting\AppDbBackupController;
@@ -54,16 +55,20 @@ Route::patch('/slider/status/{id}', SliderStatusController::class)->name('slider
 Route::resource('/event', EventController::class)->except(['create','show']);
 Route::patch('/event/status/{event}', EventStatusController::class)->name('event.status');
 
+Route::resource('/president-address', PresidentAddressController::class, [
+    'parameters' => [
+        'president-address' => 'president_address'
+    ]
+])->only(['index','store']);
 Route::resource('/committee-member', CommitteeController::class, [
     'parameters' => [
         'committee-member' => 'committee_member'
     ]
 ])->except(['create','show']);
 Route::patch('/committee/status/{Committee}', CommitteeStatusController::class)->name('committee.status');
-
 Route::resource('/history', HistoryController::class)->only(['index','store']);
-Route::resource('/president-address', PresidentAddressController::class, [
+Route::resource('/past-member', PastMemberController::class, [
     'parameters' => [
-        'president-address' => 'president_address'
+        'past-member' => 'past_member'
     ]
-])->only(['index','store']);
+])->only(['index']);

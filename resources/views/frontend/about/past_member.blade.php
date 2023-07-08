@@ -31,10 +31,10 @@
                                 <td class="one">Presidents</td>
                                 <td class="two">Year</td>
                             </tr>
-                            @foreach ($committees as $committee)
+                            @foreach ($past_members as $past_member)
                                 <tr>
-                                    <td>{{ $committee->name }}</td>
-                                    <td>{{ Carbon\Carbon::parse($committee->joining_date)->format('Y') }}</td>
+                                    <td>{{ $past_member->name }}</td>
+                                    <td>{{ Carbon\Carbon::parse($past_member->joining_date)->format('Y') }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

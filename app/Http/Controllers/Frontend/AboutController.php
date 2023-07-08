@@ -28,7 +28,7 @@ class AboutController extends Controller
 
     public function pastMember()
     {
-        $committees = Committee::whereIs_present(0)->get();
-        return view('frontend.about.past_member', compact('committees'));
+        $past_members = Committee::whereIs_present(0)->get();
+        return view('frontend.about.past_member', compact('past_members'));
     }
 }

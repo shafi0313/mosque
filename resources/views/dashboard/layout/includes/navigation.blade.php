@@ -45,30 +45,34 @@
     </li>
 
     <li>
-        <a href="{{ route('admin.committee-member.index') }}">
+        <a href="javascript:;" class="has-arrow">
             <div class="parent-icon">
-                <i class="fa-solid fa-images"></i>
+                <ion-icon name="bag-handle-sharp"></ion-icon>
             </div>
-            <div class="menu-title">Committee Member</div>
+            <div class="menu-title">About</div>
         </a>
-    </li>
-
-    <li>
-        <a href="{{ route('admin.history.index') }}">
-            <div class="parent-icon">
-                <i class="fa-solid fa-images"></i>
-            </div>
-            <div class="menu-title">History</div>
-        </a>
-    </li>
-
-    <li>
-        <a href="{{ route('admin.president-address.index') }}">
-            <div class="parent-icon">
-                <i class="fa-solid fa-images"></i>
-            </div>
-            <div class="menu-title">President Address</div>
-        </a>
+        <ul>
+            <li>
+                <a href="{{ route('admin.president-address.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>President Address
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.history.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>History
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.committee-member.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Committee Member
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.past-member.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Past Member
+                </a>
+            </li>
+        </ul>
     </li>
 
     <li>
