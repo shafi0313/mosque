@@ -34,7 +34,7 @@
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<i
                             class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="upcoming_events.html">Upcoming</a></li>
+                        <li><a href="{{ route('frontend.event.upComing') }}">Upcoming</a></li>
                         <li><a href="dawahstalls.html">Dawah Stalls</a></li>
                         <li></li>
                         <li></li>

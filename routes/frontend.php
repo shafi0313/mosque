@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\PrayerController;
 
@@ -26,3 +27,5 @@ Route::controller(AboutController::class)->prefix('about')->name('about.')->grou
     Route::get('/history', [AboutController::class, 'history'])->name('history');
     Route::get('/past-member', [AboutController::class, 'pastMember'])->name('pastMember');
 });
+
+Route::get('/up-coming-events', [EventController::class, 'upComing'])->name('event.upComing');
