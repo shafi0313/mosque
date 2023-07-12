@@ -32,17 +32,11 @@
                                     <h2>{{ $up_coming_event->title }}</h2>
                                     <h3 class="events_texts">{{ Carbon\Carbon::parse($up_coming_event->date)->format('d M Y') }}</h3>
                                     <h5 class="events_texts">{!! Str::limit($up_coming_event->text, 20) !!}</h5>
-                                    <style>
-                                        .events_texts {
-                                            color: white;
-                                        }
-                                    </style>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </section>

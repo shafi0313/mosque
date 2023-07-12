@@ -1,24 +1,5 @@
 ﻿@extends('frontend.layout.app')
 @section('content')
-    <style>
-        .more_info {
-            color: white;
-            font-weight: 500px;
-            border-radius: 50px;
-            background-color: #03449e;
-            width: 50%;
-            position: absolute;
-            padding: 4px 4px 4px 4px;
-            top: 88%;
-            left: 21%;
-
-        }
-
-        .more_info:hover {
-            padding: 5px 5px 5px 5px;
-            transition: 0.3s ease-in-out;
-        }
-    </style>
     {{-- Slider --}}
     <section id="main-slider" class="no-margin">
         <div class="carousel slide">

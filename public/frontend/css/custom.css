@@ -1,6 +1,3 @@
-
-
-
 /*******************************/
 /********** Menu CSS ***********/
 /*******************************/
@@ -89,21 +86,17 @@
     background: #719a0a;
 }
 
-
-
-
 /*******************************/
 /*********** Menu CSS **********/
 /*******************************/
 .menu {
     position: relative;
     padding: 45px 0 15px 0;
-    background-image: url(../images/services/bg_services.png)
-    
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: url(../images/services/bg_services.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .menu .menu-tab {
@@ -229,4 +222,27 @@
     }
 }
 
+/* Event */
+.events_texts {
+    color: white;
+}
+
+/* Home */
+.more_info {
+    color: white;
+    font-weight: 500px;
+    border-radius: 50px;
+    background-color: #03449e;
+    width: 50%;
+    position: absolute;
+    padding: 4px 4px 4px 4px;
+    top: 88%;
+    left: 21%;
+
+}
+
+.more_info:hover {
+    padding: 5px 5px 5px 5px;
+    transition: 0.3s ease-in-out;
+}
 
