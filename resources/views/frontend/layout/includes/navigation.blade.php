@@ -35,26 +35,14 @@
                             class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('frontend.event.upComing') }}">Upcoming</a></li>
-                        <li><a href="dawahstalls.html">Dawah Stalls</a></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li><a href="{{ route('frontend.event.dawahStalls') }}">Dawah Stalls</a></li>
                     </ul>
                 </li>
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Road To
                         Rememberance<i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="participant_info.html">Participant Info</a></li>
+                        <li><a href="{{ route('frontend.participantInfo') }}">Participant Info</a></li>
                         <li><a href="video_voting.html">Video Voting</a></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
                     </ul>
                 </li>
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get

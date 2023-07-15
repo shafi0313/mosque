@@ -31,18 +31,7 @@
             </div>
             <div class="menu-title">Slider</div>
         </a>
-    </li>
-
-    
-
-    <li>
-        <a href="{{ route('admin.event.index') }}">
-            <div class="parent-icon">
-                <i class="fa-regular fa-calendar-days"></i>
-            </div>
-            <div class="menu-title">Event</div>
-        </a>
-    </li>
+    </li>   
 
     <li>
         <a href="javascript:;" class="has-arrow">
@@ -70,6 +59,70 @@
             <li>
                 <a href="{{ route('admin.past-member.index') }}">
                     <ion-icon name="ellipse-outline"></ion-icon>Past Member
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon">
+                <ion-icon name="bag-handle-sharp"></ion-icon>
+            </div>
+            <div class="menu-title">Event</div>
+        </a>
+        <ul>
+            <li>
+                <a href="{{ route('admin.event.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Event
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.dawah-stalls.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Dawah Stalls
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon">
+                <ion-icon name="bag-handle-sharp"></ion-icon>
+            </div>
+            <div class="menu-title">Road to Remembrance</div>
+        </a>
+        <ul>
+            <li>
+                <a href="{{ route('admin.participant-info.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Participant Info
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.dawah-stalls.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Video Voting
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon">
+                <ion-icon name="bag-handle-sharp"></ion-icon>
+            </div>
+            <div class="menu-title">Get Involved</div>
+        </a>
+        <ul>
+            <li>
+                <a href="{{ route('admin.donate.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Donate
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.dawah-stalls.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Video Voting
                 </a>
             </li>
         </ul>

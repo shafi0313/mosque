@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\ParticipantInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\PrayerController;
+use App\Http\Controllers\Frontend\RemembranceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,6 @@ Route::controller(AboutController::class)->prefix('about')->name('about.')->grou
 });
 
 Route::get('/up-coming-events', [EventController::class, 'upComing'])->name('event.upComing');
+Route::get('/dawah-stalls', [EventController::class, 'dawahStalls'])->name('event.dawahStalls');
+
+Route::get('/participant-info', [RemembranceController::class, 'participantInfo'])->name('participantInfo');

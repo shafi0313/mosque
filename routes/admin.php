@@ -1,19 +1,25 @@
 <?php
 
+use App\Models\Donate;
+use App\Models\EventDawah;
+use App\Models\ParticipantInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Admin\BlankController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\DonateController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\HistoryController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\CommitteeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EventDawahController;
 use App\Http\Controllers\Admin\PastMemberController;
 use App\Http\Controllers\Admin\EventStatusController;
 use App\Http\Controllers\Admin\SliderStatusController;
 use App\Http\Controllers\Setting\AppDbBackupController;
 use App\Http\Controllers\Admin\CommitteeStatusController;
+use App\Http\Controllers\Admin\ParticipantInfoController;
 use App\Http\Controllers\Admin\PresidentAddressController;
 use App\Http\Controllers\Setting\Permission\RoleController;
 use App\Http\Controllers\Setting\Permission\PermissionController;
@@ -52,9 +58,6 @@ Route::resource('/admin-user', AdminUserController::class,[
 Route::resource('/slider', SliderController::class)->except(['create','show']);
 Route::patch('/slider/status/{id}', SliderStatusController::class)->name('slider.status');
 
-Route::resource('/event', EventController::class)->except(['create','show']);
-Route::patch('/event/status/{event}', EventStatusController::class)->name('event.status');
-
 Route::resource('/president-address', PresidentAddressController::class, [
     'parameters' => [
         'president-address' => 'president_address'
@@ -72,3 +75,10 @@ Route::resource('/past-member', PastMemberController::class, [
         'past-member' => 'past_member'
     ]
 ])->only(['index']);
+
+Route::resource('/event', EventController::class)->except(['create','show']);
+Route::patch('/event/status/{event}', EventStatusController::class)->name('event.status');
+Route::resource('/dawah-stalls', EventDawahController::class)->only(['index','store']);
+
+Route::resource('/participant-info', ParticipantInfoController::class)->only(['index','store']);
+Route::resource('/donate', DonateController::class)->only(['index','store']);
