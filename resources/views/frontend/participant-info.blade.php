@@ -1,4 +1,5 @@
 ﻿@extends('frontend.layout.app')
+@section('title', 'Participant Info')
 @section('content')
 <style>
     img {

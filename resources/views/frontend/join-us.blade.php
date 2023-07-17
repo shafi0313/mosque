@@ -1,4 +1,5 @@
 ﻿@extends('frontend.layout.app')
+@section('title', 'Join Us')
 @section('content')
     <section id="feature">
         <div class="container">

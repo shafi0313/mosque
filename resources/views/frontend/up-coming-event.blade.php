@@ -1,4 +1,5 @@
 ﻿@extends('frontend.layout.app')
+@section('title', 'Up Coming Event')
 @section('content')
     <section id="feature">
         <div class="container">
@@ -6,9 +7,9 @@
                 <h2>Upcoming Events </h2>
                 <br>
                 <p class="lead">بِسۡمِ ٱللهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ </p>
-                <h3> The UWAMSA organises a wide variety of ticketed as well as free events throughout the year, the biggest
+                <h3> The {{ setting('app_name') }} organises a wide variety of ticketed as well as free events throughout the year, the biggest
                     of which is our annual Community Iftar, held during Ramadan. Everyone is welcome to attend! </h3>
-                <h3>The UWAMSA highly values the contribution of all staff, students and community members. For volunteering
+                <h3>The {{ setting('app_name') }} highly values the contribution of all staff, students and community members. For volunteering
                     opportunities, feedback and suggestions contact any of the <a
                         href="{{ route('frontend.about.committeeMember') }}">committee
                         members</a>. </h3>

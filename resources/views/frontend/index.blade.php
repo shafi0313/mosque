@@ -1,4 +1,5 @@
 ﻿@extends('frontend.layout.app')
+@section('title', 'Home')
 @section('content')
     {{-- Slider --}}
     <section id="main-slider" class="no-margin">

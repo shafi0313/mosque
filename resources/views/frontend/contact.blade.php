@@ -1,4 +1,5 @@
 ﻿@extends('frontend.layout.app')
+@section('title', 'Contact')
 @section('content')
     <section id="contact-info">
         <div class="center">

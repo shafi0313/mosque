@@ -1,4 +1,5 @@
 ﻿@extends('frontend.layout.app')
+@section('title', 'Prayer')
 @section('content')
     <style>
         table {

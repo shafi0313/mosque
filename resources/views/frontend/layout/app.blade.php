@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>UWA MSA </title>
+    <meta name="description" content="{{ setting('app_description') }}">
+    <meta name="keyword" content="{{ setting('app_keyword') }}">
+    <title>@yield('title') | {{ setting('app_name') }}</title>
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('frontend/css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/prettyPhoto.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/responsive.css') }}" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('frontend/images/ico/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ imagePath('logo', setting('app_nav_logo')) ?? '' }}">
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet"> 
 </head>
 
