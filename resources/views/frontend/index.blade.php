@@ -86,7 +86,7 @@
                         <div class="feature-wrap">
                             <i class="fa fa-bullhorn"></i>
                             <h2>Weekly Classes</h2>
-                            <h3>For brothers and sisters. <a href="contact-us.html">Contact us</a> for more
+                            <h3>For brothers and sisters. <a href="{{ route('frontend.contact.index') }}">Contact us</a> for more
                                 information.</h3>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                         data-wow-delay="600ms">
                         <div class="feature-wrap">
                             <i class="fa fa-book"></i>
-                            <h2>UWA MSA Junior Caliphs</h2>
+                            <h2>{{ setting('app_name') }} Junior Caliphs</h2>
                             <h3>Held every Saturday from 10 30 AM to 12 30 PM, in the musallah.</h3>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
         <div class="container">
             <div class="center wow fadeInDown">
                 <h2>MSA Committee 2023</h2>
-                <p class="lead">Find more details about the current committee <a href="about_mem.html">here</a>.</p>
+                <p class="lead">Find more details about the current committee <a href="{{ route('frontend.about.committeeMember') }}">here</a>.</p>
             </div>
             <style>
                 .comimg img {

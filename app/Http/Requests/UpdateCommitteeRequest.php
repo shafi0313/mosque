@@ -11,7 +11,7 @@ class UpdateCommitteeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,17 @@ class UpdateCommitteeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'         => ['required', 'string', 'min:1', 'max:191'],
+            'designation'  => ['required', 'string', 'min:1', 'max:191'],
+            'phone'        => ['required', 'string', 'min:1', 'max:191'],
+            'email'        => ['required', 'string', 'min:1', 'max:191'],
+            'type'         => ['required', 'string', 'min:1', 'max:50'],
+            'joining_date' => ['required', 'date'],
+            'status'       => ['required', 'boolean'],
+            'is_present'   => ['required', 'boolean'],
+            'address'      => ['required', 'string', 'min:1', 'max:255'],
+            'text'         => ['nullable', 'string', 'min:1'],
+            'image'        => ['nullable', 'image','mimes:jpeg,png,jpg', 'max:1024'],
         ];
     }
 }

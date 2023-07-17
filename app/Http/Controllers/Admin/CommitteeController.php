@@ -77,17 +77,31 @@ class CommitteeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Committee $committee)
+    public function edit(Request $request, Committee $committee_member)
     {
-        //
+        if ($request->ajax()) {
+            $modal = view('dashboard.committee_member.edit')->with(['committee_member' => $committee_member])->render();
+            return response()->json(['modal' => $modal], 200);
+        }
+        return abort(500);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCommitteeRequest $request, Committee $committee)
+    public function update(UpdateCommitteeRequest $request, Committee $committee_member)
     {
-        //
+        $data = $request->validated();
+        $image = $committee_member->image;
+        if ($request->hasFile('image')) {
+            $data['image'] = imageUpdate($request, 'image', 'user', 'uploads/images/committee/', $image);
+        }
+        try {
+            $committee_member->update($data);
+            return response()->json(['message' => 'Data Successfully Inserted'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => __('app.oops')], 500);
+        }
     }
 
     /**

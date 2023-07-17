@@ -14,7 +14,7 @@ class SettingsSeeder extends Seeder
     public function run()
     {
         // Application Variables
-        Setting(['app_name' => env('APP_NAME', 'Mosque')])->save();
+        Setting(['app_name' => 'Mosque'])->save();
         Setting(['app_logo' => 'logo.png'])->save();
         Setting(['app_nav_logo' => 'logo.png'])->save();
         Setting(['app_description' => 'mosque'])->save();

@@ -155,11 +155,11 @@
             <div class="menu-title">Settings</div>
         </a>
         <ul>
-            {{-- <li class="{{ activeNav('admin.permission.*') }}">
-                <a href="{{ route('admin.role.index') }}">
-                    <ion-icon name="ellipse-outline"></ion-icon>Roles & Permission
+            <li class="{{ activeNav('admin.setting.*') }}">
+                <a href="{{ route('admin.setting.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>App Setting
                 </a>
-            </li> --}}
+            </li>
             <li class="{{ activeNav('admin.backup.*') }}">
                 <a href="{{ route('admin.backup.password') }}">
                     <ion-icon name="ellipse-outline"></ion-icon>App DB Backup

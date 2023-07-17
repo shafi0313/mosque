@@ -36,9 +36,8 @@
                             <th>Member Type</th>
                             <th>Image</th>
                             <th>Address</th>
-                            <th>p</th>
-                            <th>Text</th>
                             <th>Status</th>
+                            <th>Text</th>
                             <th class="no-sort" width="60px">Action</th>
                         </tr>
                     </thead>
@@ -103,11 +102,6 @@
                         {
                             data: 'status',
                             name: 'status'
-                        },
-                        
-                        {
-                            data: 'is_present',
-                            name: 'is_present'
                         },
                         {
                             data: 'text',

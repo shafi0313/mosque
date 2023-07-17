@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\JoinUsController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HistoryController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SponsorController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\CommitteeController;
@@ -49,6 +50,9 @@ Route::controller(AppDbBackupController::class)->prefix('app-db-backup')->group(
     Route::post('/backup-download/{name}/{ext}', 'downloadBackup')->name('backup.download');
     Route::post('/backup-delete/{name}/{ext}', 'deleteBackup')->name('backup.delete');
 });
+
+// Setting
+Route::resource('/setting', SettingController::class)->only(['index','store']);
 
 Route::resource('/admin-user', AdminUserController::class,[
     'parameters' => [
