@@ -9,7 +9,6 @@
     <title>UWA MSA </title>
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    {{-- <link href="{{ asset('frontend/css/font-awesome.min.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('frontend/css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/prettyPhoto.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/main.css') }}" rel="stylesheet">
@@ -40,6 +39,10 @@
     <script src="{{ asset('frontend/js/main.js') }}"></script>
     <script src="{{ asset('frontend/js/wow.min.js') }}"></script>
     <script src="{{ asset('frontend/plugins/prayer-time/jquery.prayer.times.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @include('sweetalert::alert')
     @stack('scripts')
 </body>
 </html>

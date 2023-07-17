@@ -1,15 +1,16 @@
 <?php
 
-use App\Models\Donate;
-use App\Models\EventDawah;
-use App\Models\ParticipantInfo;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Admin\BlankController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\DonateController;
+use App\Http\Controllers\Admin\JoinUsController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HistoryController;
+use App\Http\Controllers\Admin\SponsorController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\CommitteeController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -82,3 +83,7 @@ Route::resource('/dawah-stalls', EventDawahController::class)->only(['index','st
 
 Route::resource('/participant-info', ParticipantInfoController::class)->only(['index','store']);
 Route::resource('/donate', DonateController::class)->only(['index','store']);
+
+Route::resource('/join-us', JoinUsController::class) ->only(['index','store']);
+Route::resource('/sponsor', SponsorController::class) ->only(['index','store']);
+Route::resource('/contact', ContactController::class) ->only(['index','destroy']);

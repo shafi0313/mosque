@@ -68,7 +68,7 @@
     <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon">
-                <ion-icon name="bag-handle-sharp"></ion-icon>
+                <i class="fa-solid fa-calendar"></i>
             </div>
             <div class="menu-title">Event</div>
         </a>
@@ -89,7 +89,7 @@
     <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon">
-                <ion-icon name="bag-handle-sharp"></ion-icon>
+                <i class="fa-solid fa-bookmark"></i>
             </div>
             <div class="menu-title">Road to Remembrance</div>
         </a>
@@ -121,32 +121,28 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.dawah-stalls.index') }}">
-                    <ion-icon name="ellipse-outline"></ion-icon>Video Voting
+                <a href="{{ route('admin.join-us.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Join Us
                 </a>
             </li>
         </ul>
     </li>
 
     <li>
-        <a href="javascript:;" class="has-arrow">
+        <a href="{{ route('admin.sponsor.index') }}">
             <div class="parent-icon">
-                <ion-icon name="bag-handle-sharp"></ion-icon>
+                <i class="fa-solid fa-circle-dollar-to-slot"></i>
             </div>
-            <div class="menu-title">Blank</div>
+            <div class="menu-title">Sponsor</div>
         </a>
-        <ul>
-            <li>
-                <a href="{{ route('admin.blank.index') }}">
-                    <ion-icon name="ellipse-outline"></ion-icon>Index
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.blank.create') }}">
-                    <ion-icon name="ellipse-outline"></ion-icon>create
-                </a>
-            </li>
-        </ul>
+    </li>
+    <li>
+        <a href="{{ route('admin.contact.index') }}">
+            <div class="parent-icon">
+                <i class="fa-solid fa-address-card"></i>
+            </div>
+            <div class="menu-title">Contact</div>
+        </a>
     </li>
 
     {{-- settings --}}

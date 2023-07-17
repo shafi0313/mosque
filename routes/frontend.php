@@ -1,11 +1,13 @@
 <?php
 
-use App\Models\ParticipantInfo;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\PrayerController;
+use App\Http\Controllers\Frontend\SponsorController;
+use App\Http\Controllers\Frontend\GetInvolvedController;
 use App\Http\Controllers\Frontend\RemembranceController;
 
 /*
@@ -34,3 +36,9 @@ Route::get('/up-coming-events', [EventController::class, 'upComing'])->name('eve
 Route::get('/dawah-stalls', [EventController::class, 'dawahStalls'])->name('event.dawahStalls');
 
 Route::get('/participant-info', [RemembranceController::class, 'participantInfo'])->name('participantInfo');
+
+Route::get('/donate', [GetInvolvedController::class, 'donate'])->name('donate');
+Route::get('/join-us', [GetInvolvedController::class, 'joinUs'])->name('joinUs');
+Route::get('/sponsor', [SponsorController::class, 'index'])->name('sponsor');
+
+Route::resource('/contact', ContactController::class)->only(['index','store']);

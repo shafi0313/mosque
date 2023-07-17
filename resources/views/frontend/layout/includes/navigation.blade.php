@@ -39,7 +39,7 @@
                     </ul>
                 </li>
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Road To
-                        Rememberance<i class="fa fa-angle-down"></i></a>
+                        Remembrance<i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('frontend.participantInfo') }}">Participant Info</a></li>
                         <li><a href="video_voting.html">Video Voting</a></li>
@@ -48,12 +48,12 @@
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get
                         Involved<i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="join_us.html">Join Us</a></li>
+                        <li><a href="{{ route('frontend.donate') }}">Donate</a></li>
+                        <li><a href="{{ route('frontend.joinUs') }}">Join Us</a></li>
                     </ul>
                 </li>
-                <li><a href="sponsors.html">Sponsors</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="{{ route('frontend.sponsor') }}">Sponsors</a></li>
+                <li><a href="{{ route('frontend.contact.index') }}">Contact</a></li>
             </ul>
         </div>
     </div>
