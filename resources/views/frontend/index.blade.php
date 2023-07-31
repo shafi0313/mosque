@@ -106,7 +106,7 @@
     <section id="services" class="service-item">
         <div class="container">
             <div class="center wow fadeInDown">
-                <h2>MSA Committee 2023</h2>
+                <h2>WICI Committee 2023</h2>
                 <p class="lead">Find more details about the current committee <a href="{{ route('frontend.about.committeeMember') }}">here</a>.</p>
             </div>
             <style>

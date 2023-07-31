@@ -6,7 +6,7 @@
                     class="icon-bar"></span>
                 <span class="icon-bar"></span></button>
             <a class="navbar-brand" href="{{ route('frontend.index') }}"><img src="{{ imagePath('logo', setting('app_logo')) }}" alt="logo"
-                    width="250" class="img-responsive"></a>
+                    width="150" class="img-responsive"></a>
         </div>
         <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav resp">

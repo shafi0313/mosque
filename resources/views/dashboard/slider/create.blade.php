@@ -12,9 +12,8 @@
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-md-12">
-                            <label for="title" class="form-label required">Title </label>
-                            <input type="text" name="title" class="form-control" value="{{ old('title') }}"
-                                required />
+                            <label for="title" class="form-label">Title </label>
+                            <input type="text" name="title" class="form-control" value="{{ old('title') }}"/>
                             @if ($errors->has('title'))
                                 <div class="alert alert-danger">{{ $errors->first('title') }}</div>
                             @endif
