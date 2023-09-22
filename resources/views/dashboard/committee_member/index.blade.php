@@ -19,7 +19,6 @@
         <h6 class="mb-0">List of Committee Member's</h6>
         <a data-toggle="modal" data-bs-target="#createModal" data-bs-toggle="modal" class="btn btn-primary">Add New</a>
     </div>
-
     <hr />
     <div class="card">
         <div class="card-body">
@@ -31,14 +30,15 @@
                             <th>Name</th>
                             <th>Designation</th>
                             <th>Phone</th>
+                            <th>Present/Past</th>
                             <th>Email</th>
-                            <th>Date of Membership</th>
+                            <th>Date of M.</th>
                             <th>Member Type</th>
                             <th>Image</th>
                             <th>Address</th>
                             <th>Status</th>
                             <th>Text</th>
-                            <th class="no-sort" width="60px">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,12 +58,15 @@
                     serverSide: true,
                     deferRender: true,
                     ordering: true,
-                    responsive: true,
+                    // responsive: true,
                     scrollY: 400,
                     ajax: "{{ route('admin.committee-member.index') }}",
-                    columns: [{
+                    columns: [
+                        {
                             data: 'DT_RowIndex',
                             name: 'DT_RowIndex',
+                            className: "text-center",
+                            width: "17px",
                             searchable: false,
                             orderable: false,
                         },
@@ -78,6 +81,10 @@
                         {
                             data: 'phone',
                             name: 'phone'
+                        },
+                        {
+                            data: 'is_present',
+                            name: 'is_present'
                         },
                         {
                             data: 'email',
@@ -98,7 +105,7 @@
                         {
                             data: 'address',
                             name: 'address'
-                        },                        
+                        },
                         {
                             data: 'status',
                             name: 'status'
@@ -110,11 +117,13 @@
                         {
                             data: 'action',
                             name: 'action',
+                            className: "text-center",
+                            width: "60px",
                             orderable: false,
-                            searchable: false
+                            searchable: false,
                         },
                     ],
-                    // fixedColumns: false,
+                    // fixedColumns: true,
                     scroller: {
                         loadingIndicator: true
                     }

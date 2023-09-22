@@ -57,7 +57,7 @@
                             @endif
                         </div>
                         <div class="col-md-6">
-                            <label for="joining_date" class="form-label required">joining date </label>
+                            <label for="joining_date" class="form-label required">Joining date </label>
                             <input type="date" name="joining_date" class="form-control" value="{{ old('joining_date') }}"
                                 required />
                             @if ($errors->has('joining_date'))
@@ -79,7 +79,7 @@
                                 <div class="alert alert-danger">{{ $errors->first('image') }}</div>
                             @endif
                         </div>
-                        
+
                         <div class="col-md-12">
                             <label for="text" class="form-label">Text </label>
                             <textarea name="text" class="form-control text"></textarea>
@@ -87,7 +87,7 @@
                                 <div class="alert alert-danger">{{ $errors->first('text') }}</div>
                             @endif
                         </div>
-                        
+
                         <div class="col-md-2 form-check form-switch">
                             <label for="status" class="form-label d-block">Status </label>
                             <input class="form-check-input" type="checkbox" id="status_input" value="1" name="status" checked>

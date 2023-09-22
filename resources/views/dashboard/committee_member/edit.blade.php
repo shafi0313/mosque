@@ -101,7 +101,7 @@
 
                         <div class="col-md-2 form-check form-switch">
                             <label for="is_present" class="form-label d-block">is present </label>
-                            <input class="form-check-input" type="checkbox" id="is_present_input" name="is_present" value="{{ $committee_member->is_present }}" name="status" @checked($committee_member->is_present == 1)>
+                            <input class="form-check-input" type="checkbox" id="is_present_input" name="is_present" value="{{ $committee_member->is_present }}" @checked($committee_member->is_present == 1)>
                             <label class="form-check-label" for="is_present_input" id="is_present_label">Active</label>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
             height: 200,
         });
     });
-    
+
     document.getElementById('status_input').addEventListener("click", function() {
         document.getElementById('status_label').innerHTML = this.checked ? 'Active' : 'Inactive';
     });

@@ -4,7 +4,8 @@
 <head>
     {{-- Required meta tags --}}
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- loader --}}
     <link href="{{ asset('backend/css/pace.min.css') }}" rel="stylesheet" />
@@ -14,7 +15,7 @@
     <link href="{{ asset('backend/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+
 
     {{-- CSS Files --}}
     <link href="{{ asset('backend/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -22,7 +23,7 @@
     <link href="{{ asset('backend/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/css/icons.css') }}" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -34,8 +35,6 @@
 
     {{-- Theme Styles --}}
     <link href="{{ asset('backend/css/dark-theme.css') }}" rel="stylesheet" />
-    {{-- <link href="{{ asset('backend/css/semi-dark.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/css/header-colors.css') }}" rel="stylesheet" /> --}}
 
     <title>@yield('title') | {{ setting('app_name') }}</title>
     {{-- <title>@yield('title') | {{ config('app.locale')=='en'?setting('app_name'):setting('app_name_b') }}</title> --}}
@@ -96,6 +95,7 @@
         <div class="overlay nav-toggle-icon"></div>
         {{-- end overlay --}}
     </div>
+
     {{-- end wrapper --}}
     <div id="ajax_modal_container"></div>
     {{-- JS Files --}}
@@ -104,6 +104,7 @@
     <script src="{{ asset('backend/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('backend/js/bootstrap.bundle.min.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    @include('dashboard.layout.includes.data_table_js')
     {{-- <!-- Laravel Javascript Validation --> --}}
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
     <script src="{{ asset('backend/js/plugins-init.js') }}"></script>
@@ -111,7 +112,8 @@
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.0.4/js/bootstrap5-toggle.ecmas.min.js"></script>
-    @include('dashboard.layout.includes.data_table_js')
+    <script src="{{ asset('backend/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     @include('sweetalert::alert')
 

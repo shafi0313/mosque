@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Committee;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -17,13 +18,21 @@ class CommitteeController extends Controller
      */
     public function index(Request $request)
     {
-        // return$committees = Committee::query()->get();
         if ($request->ajax()) {
             $committees = Committee::query();
             return DataTables::of($committees)
                 ->addIndexColumn()
                 ->addColumn('joining_date', function ($row) {
                     return bdDate($row->joining_date);
+                })
+                ->addColumn('type', function ($row) {
+                    return str_replace("_", " ", $row->type);
+                })
+                ->addColumn('text', function ($row) {
+                    return Str::limit($row->text, 50);
+                })
+                ->addColumn('is_present', function ($row) {
+                    return $row->is_present == 1 ? 'Present Member' : 'Past Member';
                 })
                 ->addColumn('image', function ($row) {
                     $path = asset('uploads/images/committee/' . $row->image);
@@ -38,7 +47,7 @@ class CommitteeController extends Controller
                     $btn .= view('button', ['type' => 'ajax-delete', 'route' => route('admin.committee-member.destroy', $row->id), 'row' => $row, 'src' => 'dt']);
                     return $btn;
                 })
-                ->rawColumns(['image','text','status','action','joining_date'])
+                ->rawColumns(['joining_date','type','is_present','image', 'status', 'action'])
                 ->make(true);
         }
         return view('dashboard.committee_member.index');
@@ -51,18 +60,18 @@ class CommitteeController extends Controller
     {
         DB::beginTransaction();
         $data = $request->validated();
-        if($request->hasFile('image')){
+        $request->has('status') ? $data['status'] = 1 : $data['status'] = 0;
+        $request->has('is_present') ? $data['is_present'] = 1 : $data['is_present'] = 0;
+        if ($request->hasFile('image')) {
             $data['image'] = imageStore($request, 'image', 'image', 'images/committee/');
         }
 
         try {
             Committee::create($data);
             DB::commit();
-            return response()->json(['message' => 'Committee Member Created Successfully'], 200);
+            return response()->json(['message' => 'The information has been inserted'], 200);
         } catch (\Exception $e) {
-            DB::rollBack();
-            return response()->json(['message' => $e->getMessage()], 500);
-            return response()->json(['message' => 'Oops something went wrong, Please try again later.'], 500);
+            return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
         }
     }
 
@@ -98,9 +107,9 @@ class CommitteeController extends Controller
         }
         try {
             $committee_member->update($data);
-            return response()->json(['message' => 'Data Successfully Inserted'], 200);
+            return response()->json(['message' => 'The information has been updated'], 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => __('app.oops')], 500);
+            return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
         }
     }
 
@@ -109,6 +118,15 @@ class CommitteeController extends Controller
      */
     public function destroy(Committee $committee)
     {
-        //
+        try {
+            $checkPath =  public_path('images/committee/' . $committee->image);
+            if (file_exists($checkPath)) {
+                unlink($checkPath);
+            }
+            $committee->delete();
+            return response()->json(['message' => 'The information has been deleted'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
+        }
     }
 }
