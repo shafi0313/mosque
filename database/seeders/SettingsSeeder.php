@@ -14,14 +14,18 @@ class SettingsSeeder extends Seeder
     public function run()
     {
         // Application Variables
-        Setting(['app_name' => 'West Coast Islamic Center'])->save();
-        Setting(['app_logo' => 'logo.png'])->save();
-        Setting(['app_nav_logo' => 'nav-logo.png'])->save();
-        Setting(['app_description' => 'West Coast Islamic Center'])->save();
-        Setting(['app_keyword' => 'West Coast Islamic Center'])->save();
-        Setting(['footer_credit' => 'Yahya Gilani'])->save();
-        Setting(['footer_credit_link' => '.com'])->save();
-        Setting(['facebook' => ''])->save();
-        Setting(['youtube' => ''])->save();        
+        $datum = [
+            'app_name'             => 'West Coast Islamic Center',
+            'app_logo'             => 'logo.png',
+            'app_nav_logo'         => 'nav-logo.png',
+            'app_description'      => 'West Coast Islamic Center',
+            'app_keyword'          => 'West Coast Islamic Center',
+            'home_committee_title' => 'West Coast Islamic Center',
+            'footer_credit'        => 'Yahya Gilani',
+            'footer_credit_link'   => '.com',
+            'facebook'             => '',
+            'youtube'              => '',
+        ];
+        Setting($datum)->save();
     }
 }

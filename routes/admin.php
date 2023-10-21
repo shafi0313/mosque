@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventDawahController;
 use App\Http\Controllers\Admin\PastMemberController;
 use App\Http\Controllers\Admin\EventStatusController;
+use App\Http\Controllers\Admin\WeeklyEventController;
 use App\Http\Controllers\Admin\SliderStatusController;
 use App\Http\Controllers\Setting\AppDbBackupController;
 use App\Http\Controllers\Admin\CommitteeStatusController;
@@ -62,6 +63,9 @@ Route::resource('/admin-user', AdminUserController::class,[
 
 Route::resource('/slider', SliderController::class)->except(['create','show']);
 Route::patch('/slider/status/{id}', SliderStatusController::class)->name('slider.status');
+
+Route::resource('/weekly-events', WeeklyEventController::class)->except(['create','show']);
+Route::patch('/weekly-events/status/{weeklyEvents}', [WeeklyEventController::class, 'status'])->name('weekly_events.status');
 
 Route::resource('/president-address', PresidentAddressController::class, [
     'parameters' => [

@@ -31,7 +31,7 @@
             </div>
             <div class="menu-title">Slider</div>
         </a>
-    </li>   
+    </li>
 
     <li>
         <a href="javascript:;" class="has-arrow">
@@ -70,12 +70,17 @@
             <div class="parent-icon">
                 <i class="fa-solid fa-calendar"></i>
             </div>
-            <div class="menu-title">Event</div>
+            <div class="menu-title">Events</div>
         </a>
         <ul>
             <li>
                 <a href="{{ route('admin.event.index') }}">
                     <ion-icon name="ellipse-outline"></ion-icon>Event
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.weekly-events.index') }}">
+                    <ion-icon name="ellipse-outline"></ion-icon>Weekly Event
                 </a>
             </li>
             <li>

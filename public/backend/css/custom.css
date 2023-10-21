@@ -66,3 +66,7 @@
 .form-label {
     text-transform: capitalize;
 }
+
+.status {
+    padding-top: 30px;
+}
