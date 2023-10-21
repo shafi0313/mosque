@@ -21,24 +21,26 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'app_name'           => 'required|string|max:80',
-            'app_description'    => 'required',
-            'app_keyword'        => 'required',
-            'footer_credit'      => 'required',
-            'footer_credit_link' => 'nullable|url',
-            'facebook'           => 'nullable|url',
-            'youtube'            => 'nullable|url',
-            'app_logo'           => 'nullable|image', 'mimes:png|max:300',
-            'app_nav_logo'       => 'nullable|image', 'mimes:png|max:80',
+        $data = $request->validate([
+            'app_name'             => 'required|string|max:80',
+            'app_description'      => 'required',
+            'app_keyword'          => 'required',
+            'home_committee_title' => 'required',
+            'footer_credit'        => 'required',
+            'footer_credit_link'   => 'nullable|url',
+            'facebook'             => 'nullable|url',
+            'youtube'              => 'nullable|url',
+            'app_logo'             => 'nullable|image',         'mimes:png|max:300',
+            'app_nav_logo'         => 'nullable|image',         'mimes:png|max:80',
         ]);
-        Setting(['app_name' => $request->app_name])->save();
-        Setting(['app_description' => $request->app_description])->save();
-        Setting(['app_keyword' => $request->app_keyword])->save();
-        Setting(['footer_credit' => $request->footer_credit])->save();
-        Setting(['footer_credit_link' => $request->footer_credit_link])->save();
-        Setting(['facebook' => $request->facebook])->save();
-        Setting(['youtube' => $request->youtube])->save();
+        Setting($data)->save();
+        // Setting(['app_name' => $request->app_name])->save();
+        // Setting(['app_description' => $request->app_description])->save();
+        // Setting(['app_keyword' => $request->app_keyword])->save();
+        // Setting(['footer_credit' => $request->footer_credit])->save();
+        // Setting(['footer_credit_link' => $request->footer_credit_link])->save();
+        // Setting(['facebook' => $request->facebook])->save();
+        // Setting(['youtube' => $request->youtube])->save();
 
         $app_logo = setting('app_logo');
         if ($request->hasFile('app_logo')) {

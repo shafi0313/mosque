@@ -74,6 +74,14 @@
                         @endif
                     </div>
 
+                    <div class="col-md-12">
+                        <label for="home_committee_title" class="form-label required">Home Page Committee Title </label>
+                        <input type="text" name="home_committee_title" class="form-control" value="{{ setting('home_committee_title') ?? '' }}" required>
+                        @if ($errors->has('home_committee_title'))
+                            <div class="alert alert-danger">{{ $errors->first('home_committee_title') }}</div>
+                        @endif
+                    </div>
+
                     <div class="col-md-6">
                         <label for="footer_credit" class="form-label required">Footer Credit Name </label>
                         <input type="text" name="footer_credit" class="form-control" value="{{ setting('footer_credit') ?? '' }}" required>
