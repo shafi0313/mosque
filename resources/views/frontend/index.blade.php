@@ -81,23 +81,27 @@
             </div>
             <div class="row">
                 <div class="features">
-                    <div class="col-md-4 col-sm-6 wow fadeInDown col-lg-6" data-wow-duration="1000ms"
-                        data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-bullhorn"></i>
-                            <h2>Weekly Classes</h2>
-                            <h3>For brothers and sisters. <a href="{{ route('frontend.contact.index') }}">Contact us</a> for more
-                                information.</h3>
+                    @foreach ($weeklyEvents as $weeklyEvent)
+                        <div class="col-md-4 col-sm-6 weekly-event wow fadeInDown col-lg-6" data-wow-duration="1000ms"
+                            data-wow-delay="600ms">
+                            <div class="">
+                                <img src="{{ imagePath('weekly-event', $weeklyEvent->image) }}" alt="">
+                            </div>
+                            <div class="feature-wrap">
+                                <h2>{{ $weeklyEvent->title }}</h2>
+                                <h3>{!! $weeklyEvent->content !!}</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 wow fadeInDown col-lg-6" data-wow-duration="1000ms"
+                    @endforeach
+
+                    {{-- <div class="col-md-4 col-sm-6 wow fadeInDown col-lg-6" data-wow-duration="1000ms"
                         data-wow-delay="600ms">
                         <div class="feature-wrap">
                             <i class="fa fa-book"></i>
                             <h2>{{ setting('app_name') }} Junior Caliphs</h2>
                             <h3>Held every Saturday from 10 30 AM to 12 30 PM, in the musallah.</h3>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -107,13 +111,15 @@
         <div class="container">
             <div class="center wow fadeInDown">
                 <h2>@setting('home_committee_title')</h2>
-                <p class="lead">Find more details about the current committee <a href="{{ route('frontend.about.committeeMember') }}">here</a>.</p>
+                <p class="lead">Find more details about the current committee <a
+                        href="{{ route('frontend.about.committeeMember') }}">here</a>.</p>
             </div>
             <style>
                 .comimg img {
                     border-radius: 0px;
                     transition: ease-in-out 0.5s;
                 }
+
                 .comimg img:hover {
                     border-radius: 100px;
 

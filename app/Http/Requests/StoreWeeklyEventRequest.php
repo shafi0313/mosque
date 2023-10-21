@@ -24,7 +24,7 @@ class StoreWeeklyEventRequest extends FormRequest
         return [
             'title'   => ['required', 'string', 'min:1', 'max:255'],
             'content' => ['required', 'string', 'min:1'],
-            'image'   => ['required', 'image', 'mimes:jpeg,png,jpg,svg,webp', 'max:1024'],
+            'image'   => ['required', 'image', 'mimes:jpeg,png,jpg,svg,webp', 'max:512'],
             // 'status'  => ['required', 'boolean']
         ];
     }
