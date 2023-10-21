@@ -82,8 +82,8 @@
                         @endif
                     </div>
                     <div class="col-md-6">
-                        <label for="footer_credit_link" class="form-label required">Footer Credit Link </label>
-                        <input type="text" name="footer_credit_link" class="form-control" value="{{ setting('footer_credit_link') ?? '' }}" required>
+                        <label for="footer_credit_link" class="form-label">Footer Credit Link </label>
+                        <input type="text" name="footer_credit_link" class="form-control" value="{{ setting('footer_credit_link') ?? '' }}">
                         @if ($errors->has('footer_credit_link'))
                             <div class="alert alert-danger">{{ $errors->first('footer_credit_link') }}</div>
                         @endif

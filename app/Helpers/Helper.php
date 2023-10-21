@@ -40,24 +40,51 @@ if (!function_exists('imageStore')) {
     }
 }
 
+// if (!function_exists('imageUpdate')) {
+//     function imageUpdate(Request $request, $requestName, string $name, string $path, $image)
+//     {
+//         if($request->hasFile($requestName)){
+//             $deletePath =  public_path().'/uploads/'.$path.$image;
+//             if(file_exists($deletePath) && $image != ''){
+//                 unlink($deletePath);
+//             }
+//             $createPath = public_path().'/'.$path;
+//             !file_exists($createPath) ?? File::makeDirectory($createPath, 0777, true, true);
+
+//             $image = $request->file($requestName);
+//             $imageName = $name .'_'. uniqueId(10).'.'.$image->getClientOriginalExtension();
+//             if ($image->isValid()) {
+//                 $request->$requestName->move(public_path().'/uploads/'.$path,$imageName);
+//                 return $imageName;
+//             }
+//         }
+//     }
+// }
+
 if (!function_exists('imageUpdate')) {
     function imageUpdate(Request $request, $requestName, string $name, string $path, $image)
     {
-        if($request->hasFile($requestName)){
-            $deletePath =  public_path().'/uploads/'.$path.$image;
-            if(file_exists($deletePath) && $image != ''){
+        if ($request->hasFile($requestName)) {
+            $deletePath = public_path('/uploads/' . $path . $image);
+            if ($image != '' && file_exists($deletePath)) {
                 unlink($deletePath);
             }
-            $createPath = public_path().'/'.$path;
-            !file_exists($createPath) ?? File::makeDirectory($createPath, 0777, true, true);
 
-            $image = $request->file($requestName);
-            $imageName = $name .'_'. uniqueId(10).'.'.$image->getClientOriginalExtension();
-            if ($image->isValid()) {
-                $request->$requestName->move(public_path().'/uploads/'.$path,$imageName);
+            $createPath = public_path($path);
+            if (!file_exists($createPath)) {
+                File::makeDirectory($createPath, 0777, true, true);
+            }
+
+            $uploadedImage = $request->file($requestName);
+            $imageName = $name . '_' . uniqid(10) . '.' . $uploadedImage->getClientOriginalExtension();
+
+            if ($uploadedImage->isValid()) {
+                $uploadedImage->move(public_path('/uploads/' . $path), $imageName);
                 return $imageName;
             }
         }
+
+        return null;
     }
 }
 
@@ -68,7 +95,7 @@ if (!function_exists('imagePath')) {
         if(@GetImageSize($path)){
             return asset($path);
         }else{
-            // return setting('app_logo');
+            // return imagePath('logo',setting('app_logo'));
         }
     }
 }

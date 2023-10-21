@@ -17,7 +17,7 @@
     <!--end breadcrumb-->
     <div class="d-flex justify-content-between index_title">
         <h6 class="mb-0">List of Contacts</h6>
-        <a data-toggle="modal" data-bs-target="#createModal" data-bs-toggle="modal" class="btn btn-primary">Add New</a>
+        {{-- <a data-toggle="modal" data-bs-target="#createModal" data-bs-toggle="modal" class="btn btn-primary">Add New</a> --}}
     </div>
 
     <hr />
