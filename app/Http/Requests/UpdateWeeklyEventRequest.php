@@ -11,7 +11,7 @@ class UpdateWeeklyEventRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateWeeklyEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title'   => ['required', 'string', 'min:1', 'max:255'],
+            'content' => ['required', 'string', 'min:1'],
+            'image'   => ['nullable', 'image', 'mimes:jpeg,png,jpg,svg,webp', 'max:512'],
         ];
     }
 }

@@ -84,9 +84,13 @@ class WeeklyEventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(WeeklyEvent $weeklyEvent)
+    public function edit(Request $request, WeeklyEvent $weeklyEvent)
     {
-        //
+        if ($request->ajax()) {
+            $modal = view('dashboard.weekly-event.edit')->with(['weeklyEvent' => $weeklyEvent])->render();
+            return response()->json(['modal' => $modal], 200);
+        }
+        return abort(500);
     }
 
     /**
@@ -94,7 +98,23 @@ class WeeklyEventController extends Controller
      */
     public function update(UpdateWeeklyEventRequest $request, WeeklyEvent $weeklyEvent)
     {
-        //
+        DB::beginTransaction();
+        $data = $request->validated();
+
+        $image = $weeklyEvent->image;
+        if ($request->hasFile('image')) {
+            $data['image'] = imageUpdate($request, 'image', 'weekly-event', 'images/weekly-event', $image);
+        }
+
+        try {
+            $weeklyEvent->update($data);
+            DB::commit();
+            return response()->json(['message' => 'Weekly Event Update Successfully'], 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => __('Oops something went wrong, Please try again later.')], 500);
+        }
     }
 
     /**

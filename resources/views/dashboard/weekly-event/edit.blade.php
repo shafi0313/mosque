@@ -1,50 +1,42 @@
 <!-- Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Admin User</h5>
+                <h5 class="modal-title">Edit Weekly Event</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form onsubmit="ajaxStore(event, this, 'editModal')" action="{{ route('admin.slider.update', $slider->id) }}"
-                method="POST" enctype="multipart/form-data">
+            <form onsubmit="ajaxStore(event, this, 'editModal')"
+                action="{{ route('admin.weekly-events.update', $weeklyEvent->id) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf @method('PUT')
                 <input type="hidden" name="update" value="1">
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <label for="title" class="form-label required">Title </label>
-                            <input type="text" name="title" class="form-control" value="{{ $slider->title }}"
+                            <input type="text" name="title" class="form-control" value="{{ $weeklyEvent->title }}"
                                 required />
                             @if ($errors->has('title'))
                                 <div class="alert alert-danger">{{ $errors->first('title') }}</div>
                             @endif
                         </div>
                         <div class="col-md-12">
-                            <label for="sub_title" class="form-label">Sub Title </label>
-                            <input type="text" name="sub_title" class="form-control" value="{{ $slider->sub_title }}"/>
-                            @if ($errors->has('sub_title'))
-                                <div class="alert alert-danger">{{ $errors->first('sub_title') }}</div>
+                            <label for="content" class="form-label required">Content </label>
+                            <textarea name="content" class="form-control content" required>{{ $weeklyEvent->content }}</textarea>
+                            @if ($errors->has('content'))
+                                <div class="alert alert-danger">{{ $errors->first('content') }}</div>
                             @endif
                         </div>
                         <div class="col-md-6">
-                            <img src="{{ imagePath('sliders', $slider->image) }}" alt="" width="70px">
+                            <img src="{{ imagePath('weekly-event', $weeklyEvent->image) }}" alt=""
+                                width="70px">
                         </div>
                         <div class="col-md-6">
-                            <label for="image" class="form-label ">Background Image </label>
+                            <label for="image" class="form-label">Image </label>
                             <input type="file" name="image" class="form-control" />
                             @if ($errors->has('image'))
                                 <div class="alert alert-danger">{{ $errors->first('image') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{ imagePath('sliders', $slider->icon) }}" alt="" width="70px">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="icon" class="form-label">Icon </label>
-                            <input type="file" name="icon" class="form-control"/>
-                            @if ($errors->has('icon'))
-                                <div class="alert alert-danger">{{ $errors->first('icon') }}</div>
                             @endif
                         </div>
                         {{-- <div class="col-md-6">
@@ -64,3 +56,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.content').summernote({
+            height: 400,
+        });
+    });
+</script>
