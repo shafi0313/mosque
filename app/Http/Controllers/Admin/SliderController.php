@@ -42,7 +42,7 @@ class SliderController extends Controller
                     $btn .= view('button', ['type' => 'ajax-delete', 'route' => route('admin.slider.destroy', $row->id), 'row' => $row, 'src' => 'dt']);
                     return $btn;
                 })
-                ->rawColumns(['image','icon','status','action','created_at'])
+                ->rawColumns(['image', 'icon', 'status', 'action', 'created_at'])
                 ->make(true);
         }
         return view('dashboard.slider.index');
@@ -56,10 +56,10 @@ class SliderController extends Controller
         DB::beginTransaction();
         $data = $request->validated();
         $data['status'] = $request->status == 'on' ? 1 : 0;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $data['image'] = imageStore($request, 'image', 'image', 'images/sliders/');
         }
-        if($request->hasFile('icon')){
+        if ($request->hasFile('icon')) {
             $data['icon'] = imageStore($request, 'icon', 'icon', 'images/sliders/');
         }
 
@@ -85,7 +85,7 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request,Slider $slider)
+    public function edit(Request $request, Slider $slider)
     {
         if ($request->ajax()) {
             $modal = view('dashboard.slider.edit')->with(['slider' => $slider])->render();

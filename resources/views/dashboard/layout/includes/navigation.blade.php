@@ -36,7 +36,7 @@
     <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon">
-                <ion-icon name="bag-handle-sharp"></ion-icon>
+                <i class="fa-solid fa-book-open"></i>
             </div>
             <div class="menu-title">About</div>
         </a>
@@ -62,6 +62,15 @@
                 </a>
             </li>
         </ul>
+    </li>
+
+    <li>
+        <a href="{{ route('admin.prayer-times.index') }}">
+            <div class="parent-icon">
+                <i class="fa-regular fa-clock"></i>
+            </div>
+            <div class="menu-title">Custom Prayer Times</div>
+        </a>
     </li>
 
 

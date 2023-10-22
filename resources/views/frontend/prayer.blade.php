@@ -136,104 +136,132 @@
     <section id="contact-info">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div>
-                        <h2 class="geolocation"></h2>
-                        <h2 class="country"></h2>
-                        <h2 class="city"></h2>
+                @if (setting('custom_prayer_time') == '1')
+
+                    <div class="col-md-6">
+                        <h2>Location: @setting('prayer_time_location')</h2>
+                        <table class="table">
+                            {{-- <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead> --}}
+                            <tbody>
+                                @foreach ($prayerTimes as $prayerTime)
+                                    <tr>
+                                        <td>{{ $prayerTime->name }}</td>
+                                        <td>{{ $prayerTime->time }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="prayer-times"></div>
-                </div>
-                <div class="col-md-6">
+                @endif
+                @if (setting('auto_prayer_time') == '1')
+                    <div class="col-md-6">
+                        <div>
+                            <h2 class="geolocation"></h2>
+                            <h2 class="country"></h2>
+                            <h2 class="city"></h2>
+                        </div>
+                        <div class="prayer-times"></div>
+                    </div>
+                @endif
+
+                {{-- <div class="col-md-6">
                     <div>
                         <h2 class="geolocation"></h2>
                         <h2 class="country"></h2>
                         <h2 class="city"></h2>
                     </div>
                     <div class="prayer-times-arabic"></div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
 
     @push('scripts')
         <script>
-            $(document).ready(function() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                        var latitude = position.coords.latitude;
-                        var longitude = position.coords.longitude;
-                        // Send a request to reverse geocode the coordinates
-                        var apiUrl = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=' + latitude +
-                            '&lon=' + longitude;
-                        $.ajax({
-                            url: apiUrl,
-                            method: 'GET',
-                            dataType: 'json',
-                            success: function(response) {
-                                var country = response.address.country;
-                                var city = response.address.city || response.address.town ||
-                                    response.address.village || response.address.hamlet;
-                                $('.country').text('Country: ' + country);
-                                $('.city').text('City: ' + city);
-                                $('.prayer-times').prayerTimes({
-                                    method: 4,
-                                    school: 1,
-                                    imsak: true,
-                                    sunrise: true,
-                                    sunset: true,
-                                    midnight: true,
-                                    militaryTime: false,
-                                    country: country,
-                                    city: city,
-                                });
-                                $('.prayer-times-arabic').prayerTimes({
-                                    arabic: true,
-                                    method: 4,
-                                    school: 1,
-                                    imsak: true,
-                                    sunrise: true,
-                                    sunset: true,
-                                    midnight: true,
-                                    militaryTime: false,
-                                    country: country,
-                                    city: city,
-                                });
-                            },
-                            error: function(error) {
-                                console.log('Error:', error);
-                            }
+            if ('{{ setting('auto_prayer_time') == '1' }}') {
+                $(document).ready(function() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            var latitude = position.coords.latitude;
+                            var longitude = position.coords.longitude;
+                            // Send a request to reverse geocode the coordinates
+                            var apiUrl = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=' +
+                                latitude +
+                                '&lon=' + longitude;
+                            $.ajax({
+                                url: apiUrl,
+                                method: 'GET',
+                                dataType: 'json',
+                                success: function(response) {
+                                    var country = response.address.country;
+                                    var city = response.address.city || response.address.town ||
+                                        response.address.village || response.address.hamlet;
+                                    $('.country').text('Country: ' + country);
+                                    $('.city').text('City: ' + city);
+                                    $('.prayer-times').prayerTimes({
+                                        method: 4,
+                                        school: 1,
+                                        imsak: true,
+                                        sunrise: true,
+                                        sunset: true,
+                                        midnight: true,
+                                        militaryTime: false,
+                                        country: country,
+                                        city: city,
+                                    });
+                                    $('.prayer-times-arabic').prayerTimes({
+                                        arabic: true,
+                                        method: 4,
+                                        school: 1,
+                                        imsak: true,
+                                        sunrise: true,
+                                        sunset: true,
+                                        midnight: true,
+                                        militaryTime: false,
+                                        country: country,
+                                        city: city,
+                                    });
+                                },
+                                error: function(error) {
+                                    console.log('Error:', error);
+                                }
+                            });
                         });
-                    });
-                } else {
-                    // console.log('Geolocation is not supported by this browser.');
-                    $('.geolocation').text('Geolocation is not supported by this browser.');
-                    $('.country').text('Default Country: Australia');
-                    $('.city').text('');
-                    $('.prayer-times').prayerTimes({
-                        method: 4,
-                        school: 1,
-                        imsak: true,
-                        sunrise: true,
-                        sunset: true,
-                        midnight: true,
-                        militaryTime: false,
-                        country: 'Australia',
-                    });
-                    $('.prayer-times-arabic').prayerTimes({
-                        arabic: true,
-                        method: 4,
-                        school: 1,
-                        imsak: true,
-                        sunrise: true,
-                        sunset: true,
-                        midnight: true,
-                        militaryTime: false,
-                        country: 'Australia',
-                    });
-                }
-                $('table').css('table table-bordered table-striped table-hover');
-            });
+                    } else {
+                        // console.log('Geolocation is not supported by this browser.');
+                        $('.geolocation').text('Geolocation is not supported by this browser.');
+                        $('.country').text('Default Country: Australia');
+                        $('.city').text('');
+                        $('.prayer-times').prayerTimes({
+                            method: 4,
+                            school: 1,
+                            imsak: true,
+                            sunrise: true,
+                            sunset: true,
+                            midnight: true,
+                            militaryTime: false,
+                            country: 'Australia',
+                        });
+                        $('.prayer-times-arabic').prayerTimes({
+                            arabic: true,
+                            method: 4,
+                            school: 1,
+                            imsak: true,
+                            sunrise: true,
+                            sunset: true,
+                            midnight: true,
+                            militaryTime: false,
+                            country: 'Australia',
+                        });
+                    }
+                    $('table').css('table table-bordered table-striped table-hover');
+                });
+            }
         </script>
     @endpush
 @endsection

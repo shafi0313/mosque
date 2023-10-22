@@ -15,16 +15,19 @@ class SettingsSeeder extends Seeder
     {
         // Application Variables
         $datum = [
-            'app_name'             => 'West Coast Islamic Center',
-            'app_logo'             => 'logo.png',
-            'app_nav_logo'         => 'nav-logo.png',
-            'app_description'      => 'West Coast Islamic Center',
-            'app_keyword'          => 'West Coast Islamic Center',
-            'home_committee_title' => 'West Coast Islamic Center',
-            'footer_credit'        => 'Yahya Gilani',
-            'footer_credit_link'   => '.com',
-            'facebook'             => '',
-            'youtube'              => '',
+            // 'app_name'             => 'West Coast Islamic Center',
+            // 'app_logo'             => 'logo.png',
+            // 'app_nav_logo'         => 'nav-logo.png',
+            // 'app_description'      => 'West Coast Islamic Center',
+            // 'app_keyword'          => 'West Coast Islamic Center',
+            // 'home_committee_title' => 'West Coast Islamic Center',
+            // 'footer_credit'        => 'Yahya Gilani',
+            // 'footer_credit_link'   => '.com',
+            // 'facebook'             => '',
+            // 'youtube'              => '',
+            'prayer_time_location' => 'Australia',
+            'custom_prayer_time'   => '1',
+            'auto_prayer_time'   => '1',
         ];
         Setting($datum)->save();
     }
