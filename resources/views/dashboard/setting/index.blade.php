@@ -28,7 +28,8 @@
                 <div class="row g-3">
                     <div class="col-md-12">
                         <label for="app_name" class="form-label required">App Name </label>
-                        <input type="text" name="app_name" class="form-control" value="{{ setting('app_name') ?? '' }}" required>
+                        <input type="text" name="app_name" class="form-control" value="{{ setting('app_name') ?? '' }}"
+                            required>
                         @if ($errors->has('app_name'))
                             <div class="alert alert-danger">{{ $errors->first('app_name') }}</div>
                         @endif
@@ -60,7 +61,8 @@
 
                     <div class="col-md-12">
                         <label for="app_description" class="form-label required">App Description </label>
-                        <input type="text" name="app_description" class="form-control" value="{{ setting('app_description') ?? '' }}" required>
+                        <input type="text" name="app_description" class="form-control"
+                            value="{{ setting('app_description') ?? '' }}" required>
                         @if ($errors->has('app_description'))
                             <div class="alert alert-danger">{{ $errors->first('app_description') }}</div>
                         @endif
@@ -68,7 +70,8 @@
 
                     <div class="col-md-12">
                         <label for="app_keyword" class="form-label required">App Keyword </label>
-                        <input type="text" name="app_keyword" class="form-control" value="{{ setting('app_keyword') ?? '' }}" required>
+                        <input type="text" name="app_keyword" class="form-control"
+                            value="{{ setting('app_keyword') ?? '' }}" required>
                         @if ($errors->has('app_keyword'))
                             <div class="alert alert-danger">{{ $errors->first('app_keyword') }}</div>
                         @endif
@@ -76,22 +79,60 @@
 
                     <div class="col-md-12">
                         <label for="home_committee_title" class="form-label required">Home Page Committee Title </label>
-                        <input type="text" name="home_committee_title" class="form-control" value="{{ setting('home_committee_title') ?? '' }}" required>
+                        <input type="text" name="home_committee_title" class="form-control"
+                            value="{{ setting('home_committee_title') ?? '' }}" required>
                         @if ($errors->has('home_committee_title'))
                             <div class="alert alert-danger">{{ $errors->first('home_committee_title') }}</div>
                         @endif
                     </div>
 
                     <div class="col-md-6">
+                        <label for="prayer_time_location" class="form-label">Custom Prayer Time Location </label>
+                        <input type="text" name="prayer_time_location" class="form-control"
+                            value="{{ setting('prayer_time_location') ?? '' }}">
+                        @if ($errors->has('prayer_time_location'))
+                            <div class="alert alert-danger">{{ $errors->first('prayer_time_location') }}</div>
+                        @endif
+                    </div>
+
+                    <div class="col-md-3 pt-5">
+                        <div class="form-check">
+                            <input type="checkbox" {{ setting('custom_prayer_time') == '1' ? 'checked' : '' }}
+                                name="prayer_time_location" value="{{ setting('custom_prayer_time') ?? '' }}"
+                                class="form-check-input" id="prayer_time_location">
+                            <label class="form-check-label" for="prayer_time_location">Enable/Disable Custom Prayer
+                                Time</label>
+                            @if ($errors->has('custom_prayer_time'))
+                                <div class="alert alert-danger">{{ $errors->first('custom_prayer_time') }}</div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 pt-5">
+                        <div class="form-check">
+                            <input type="checkbox" {{ setting('auto_prayer_time') == '1' ? 'checked' : '' }}
+                                name="prayer_time_location" value="{{ setting('auto_prayer_time') ?? '' }}"
+                                class="form-check-input" id="prayer_time_location">
+                            <label class="form-check-label" for="prayer_time_location">Enable/Disable Auto Prayer
+                                Time</label>
+                            @if ($errors->has('auto_prayer_time'))
+                                <div class="alert alert-danger">{{ $errors->first('auto_prayer_time') }}</div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
                         <label for="footer_credit" class="form-label required">Footer Credit Name </label>
-                        <input type="text" name="footer_credit" class="form-control" value="{{ setting('footer_credit') ?? '' }}" required>
+                        <input type="text" name="footer_credit" class="form-control"
+                            value="{{ setting('footer_credit') ?? '' }}" required>
                         @if ($errors->has('footer_credit'))
                             <div class="alert alert-danger">{{ $errors->first('footer_credit') }}</div>
                         @endif
                     </div>
                     <div class="col-md-6">
                         <label for="footer_credit_link" class="form-label">Footer Credit Link </label>
-                        <input type="text" name="footer_credit_link" class="form-control" value="{{ setting('footer_credit_link') ?? '' }}">
+                        <input type="text" name="footer_credit_link" class="form-control"
+                            value="{{ setting('footer_credit_link') ?? '' }}">
                         @if ($errors->has('footer_credit_link'))
                             <div class="alert alert-danger">{{ $errors->first('footer_credit_link') }}</div>
                         @endif
@@ -99,14 +140,16 @@
 
                     <div class="col-md-6">
                         <label for="facebook" class="form-label">Facebook Link </label>
-                        <input type="text" name="facebook" class="form-control" value="{{ setting('facebook') ?? '' }}">
+                        <input type="text" name="facebook" class="form-control"
+                            value="{{ setting('facebook') ?? '' }}">
                         @if ($errors->has('facebook'))
                             <div class="alert alert-danger">{{ $errors->first('facebook') }}</div>
                         @endif
                     </div>
                     <div class="col-md-6">
                         <label for="youtube" class="form-label">Youtube Link </label>
-                        <input type="text" name="youtube" class="form-control" value="{{ setting('youtube') ?? '' }}">
+                        <input type="text" name="youtube" class="form-control"
+                            value="{{ setting('youtube') ?? '' }}">
                         @if ($errors->has('youtube'))
                             <div class="alert alert-danger">{{ $errors->first('youtube') }}</div>
                         @endif

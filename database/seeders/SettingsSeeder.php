@@ -27,7 +27,7 @@ class SettingsSeeder extends Seeder
             // 'youtube'              => '',
             'prayer_time_location' => 'Australia',
             'custom_prayer_time'   => '1',
-            'auto_prayer_time'   => '1',
+            'auto_prayer_time'     => '1',
         ];
         Setting($datum)->save();
     }

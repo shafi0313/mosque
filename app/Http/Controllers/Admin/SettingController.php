@@ -32,6 +32,9 @@ class SettingController extends Controller
             'youtube'              => 'nullable|url',
             'app_logo'             => 'nullable|image',         'mimes:png|max:300',
             'app_nav_logo'         => 'nullable|image',         'mimes:png|max:80',
+            'prayer_time_location' => 'nullable',
+            'custom_prayer_time'   => 'nullable',
+            'auto_prayer_time'     => 'nullable',
         ]);
         Setting($data)->save();
         // Setting(['app_name' => $request->app_name])->save();
