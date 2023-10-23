@@ -15,36 +15,44 @@ class PrayerTimeSeeder extends Seeder
     {
         $datum = [
             [
-                'name' => 'Fajr',
-                'time' => '04:41 AM'
+                'name'       => 'Fajr',
+                'adhan_time' => '04:41 AM',
+                'iqama_time' => '04:41 AM',
             ],
             [
-                'name' => 'Sunrise',
-                'time' => '05:59 AM'
+                'name'       => 'Sunrise',
+                'adhan_time' => '04:41 AM',
+                'iqama_time' => '05:59 AM'
             ],
             [
-                'name' => 'Dhuhr',
-                'time' => '11:43 AM'
+                'name'       => 'Dhuhr',
+                'adhan_time' => '11:43 AM',
+                'iqama_time' => '04:41 AM',
             ],
             [
-                'name' => 'Asr',
-                'time' => '03:51 PM'
+                'name'       => 'Asr',
+                'adhan_time' => '03:51 PM',
+                'iqama_time' => '04:41 AM',
             ],
             [
-                'name' => 'Sunset',
-                'time' => '05:27 PM'
+                'name'       => 'Sunset',
+                'adhan_time' => '05:27 PM',
+                'iqama_time' => '04:41 AM',
             ],
             [
-                'name' => 'Maghrib',
-                'time' => '06:57 PM'
+                'name'       => 'Maghrib',
+                'adhan_time' => '06:57 PM',
+                'iqama_time' => '04:41 AM',
             ],
             [
-                'name' => 'Isha',
-                'time' => '06:57 PM'
+                'name'       => 'Isha',
+                'adhan_time' => '06:57 PM',
+                'iqama_time' => '04:41 AM',
             ],
             [
-                'name' => 'Midnight',
-                'time' => '11:04 PM'
+                'name'       => 'Midnight',
+                'adhan_time' => '11:04 PM',
+                'iqama_time' => '04:41 AM',
             ],
         ];
         PrayerTime::insert($datum);

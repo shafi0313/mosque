@@ -30,20 +30,19 @@ class SettingController extends Controller
             'footer_credit_link'   => 'nullable|url',
             'facebook'             => 'nullable|url',
             'youtube'              => 'nullable|url',
-            'app_logo'             => 'nullable|image',         'mimes:png|max:300',
-            'app_nav_logo'         => 'nullable|image',         'mimes:png|max:80',
+            'app_logo'             => 'nullable|image|mimes:png|max:300',
+            'app_nav_logo'         => 'nullable|image|mimes:png|max:80',
             'prayer_time_location' => 'nullable',
-            'custom_prayer_time'   => 'nullable',
-            'auto_prayer_time'     => 'nullable',
         ]);
+
+        if ($request->prayer_time && $request->prayer_time == 'custom') {
+            $data['custom_prayer_time'] = 1;
+            $data['auto_prayer_time']   = '';
+        } else {
+            $data['custom_prayer_time'] = '';
+            $data['auto_prayer_time']   = 1;
+        }
         Setting($data)->save();
-        // Setting(['app_name' => $request->app_name])->save();
-        // Setting(['app_description' => $request->app_description])->save();
-        // Setting(['app_keyword' => $request->app_keyword])->save();
-        // Setting(['footer_credit' => $request->footer_credit])->save();
-        // Setting(['footer_credit_link' => $request->footer_credit_link])->save();
-        // Setting(['facebook' => $request->facebook])->save();
-        // Setting(['youtube' => $request->youtube])->save();
 
         $app_logo = setting('app_logo');
         if ($request->hasFile('app_logo')) {
@@ -56,13 +55,5 @@ class SettingController extends Controller
 
         Alert::success('Success', 'Setting Updated Successfully');
         return back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

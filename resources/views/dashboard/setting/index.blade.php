@@ -1,5 +1,5 @@
 @extends('dashboard.layout.app')
-@section('title', 'App Setting')
+@section('title', 'Website Setting')
 @section('content')
     <!--start breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-2">
@@ -10,7 +10,7 @@
                         <ion-icon name="home-outline"></ion-icon>
                     </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">App Setting</li>
+                <li class="breadcrumb-item active" aria-current="page">Website Setting</li>
             </ol>
         </nav>
     </div>
@@ -27,7 +27,7 @@
             <div class="card-body">
                 <div class="row g-3">
                     <div class="col-md-12">
-                        <label for="app_name" class="form-label required">App Name </label>
+                        <label for="app_name" class="form-label required">Website Name </label>
                         <input type="text" name="app_name" class="form-control" value="{{ setting('app_name') ?? '' }}"
                             required>
                         @if ($errors->has('app_name'))
@@ -36,11 +36,11 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="" class="form-label d-block required">App Logo </label>
+                        <label for="" class="form-label d-block required">Website Logo </label>
                         <img src="{{ imagePath('logo', setting('app_logo')) }}" height="70px">
                     </div>
                     <div class="col-md-6">
-                        <label for="app_logo" class="form-label">App Logo </label>
+                        <label for="app_logo" class="form-label">Website Logo </label>
                         <input type="file" name="app_logo" class="form-control">
                         @if ($errors->has('app_logo'))
                             <div class="alert alert-danger">{{ $errors->first('app_logo') }}</div>
@@ -48,11 +48,11 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="" class="form-label d-block required">App Nav Logo </label>
+                        <label for="" class="form-label d-block required">Website Nav Logo </label>
                         <img src="{{ imagePath('logo', setting('app_nav_logo')) }}" height="70px">
                     </div>
                     <div class="col-md-6">
-                        <label for="app_nav_logo" class="form-label">App Nav Logo </label>
+                        <label for="app_nav_logo" class="form-label">Website Nav Logo </label>
                         <input type="file" name="app_nav_logo" class="form-control">
                         @if ($errors->has('app_nav_logo'))
                             <div class="alert alert-danger">{{ $errors->first('app_nav_logo') }}</div>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <label for="app_description" class="form-label required">App Description </label>
+                        <label for="app_description" class="form-label required">Website Description </label>
                         <input type="text" name="app_description" class="form-control"
                             value="{{ setting('app_description') ?? '' }}" required>
                         @if ($errors->has('app_description'))
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <label for="app_keyword" class="form-label required">App Keyword </label>
+                        <label for="app_keyword" class="form-label required">Website Keyword </label>
                         <input type="text" name="app_keyword" class="form-control"
                             value="{{ setting('app_keyword') ?? '' }}" required>
                         @if ($errors->has('app_keyword'))
@@ -97,26 +97,24 @@
 
                     <div class="col-md-3 pt-5">
                         <div class="form-check">
-                            <input type="checkbox" {{ setting('custom_prayer_time') == '1' ? 'checked' : '' }}
-                                name="prayer_time_location" value="{{ setting('custom_prayer_time') ?? '' }}"
-                                class="form-check-input" id="prayer_time_location">
-                            <label class="form-check-label" for="prayer_time_location">Enable/Disable Custom Prayer
+                            <input type="radio" {{ setting('custom_prayer_time') == 1 ? 'checked' : '' }}
+                                name="prayer_time" class="form-check-input" id="custom_prayer_time" value="custom">
+                            <label class="form-check-label" for="custom_prayer_time">Enable/Disable Custom Prayer
                                 Time</label>
-                            @if ($errors->has('custom_prayer_time'))
-                                <div class="alert alert-danger">{{ $errors->first('custom_prayer_time') }}</div>
+                            @if ($errors->has('prayer_time'))
+                                <div class="alert alert-danger">{{ $errors->first('prayer_time') }}</div>
                             @endif
                         </div>
                     </div>
 
                     <div class="col-md-3 pt-5">
                         <div class="form-check">
-                            <input type="checkbox" {{ setting('auto_prayer_time') == '1' ? 'checked' : '' }}
-                                name="prayer_time_location" value="{{ setting('auto_prayer_time') ?? '' }}"
-                                class="form-check-input" id="prayer_time_location">
-                            <label class="form-check-label" for="prayer_time_location">Enable/Disable Auto Prayer
+                            <input type="radio" {{ setting('auto_prayer_time') == 1 ? 'checked' : '' }}
+                                name="prayer_time" value="" class="form-check-input" id="auto_prayer_time">
+                            <label class="form-check-label" for="auto_prayer_time">Enable/Disable Auto Prayer
                                 Time</label>
-                            @if ($errors->has('auto_prayer_time'))
-                                <div class="alert alert-danger">{{ $errors->first('auto_prayer_time') }}</div>
+                            @if ($errors->has('prayer_time'))
+                                <div class="alert alert-danger">{{ $errors->first('prayer_time') }}</div>
                             @endif
                         </div>
                     </div>

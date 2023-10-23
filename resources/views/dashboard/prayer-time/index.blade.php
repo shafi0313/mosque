@@ -58,12 +58,17 @@
                         {
                             data: 'name',
                             name: 'name',
-                            title: 'Name'
+                            title: 'Prayer'
                         },
                         {
-                            data: 'time',
-                            name: 'time',
-                            title: 'Time'
+                            data: 'adhan_time',
+                            name: 'adhan_time',
+                            title: 'Adhan Time'
+                        },
+                        {
+                            data: 'iqama_time',
+                            name: 'iqama_time',
+                            title: 'Iqama Time'
                         },
                         {
                             data: 'action',

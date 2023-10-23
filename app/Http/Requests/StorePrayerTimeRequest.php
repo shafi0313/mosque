@@ -22,8 +22,9 @@ class StorePrayerTimeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'min:1', 'max:40'],
-            'time' => ['required', 'string', 'min:1', 'max:40']
+            'name'       => ['required', 'string', 'min:1', 'max:40'],
+            'adhan_time' => ['required', 'string', 'min:1', 'max:40'],
+            'iqama_time' => ['required', 'string', 'min:1', 'max:40'],
         ];
     }
 }

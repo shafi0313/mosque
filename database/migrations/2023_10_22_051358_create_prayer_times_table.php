@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('prayer_times', function (Blueprint $table) {
             $table->id();
             $table->string('name', 40);
-            $table->string('time', 40);
+            $table->string('adhan_time', 40);
+            $table->string('iqama_time', 40);
             $table->timestamps();
         });
     }
