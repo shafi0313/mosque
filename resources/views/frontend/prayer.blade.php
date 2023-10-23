@@ -136,29 +136,31 @@
     <section id="contact-info">
         <div class="container">
             <div class="row">
-                @if (setting('custom_prayer_time') == '1')
+                @if (setting('custom_prayer_time'))
 
                     <div class="col-md-6">
                         <h2>Location: @setting('prayer_time_location')</h2>
                         <table class="table">
-                            {{-- <thead>
+                            <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Time</th>
+                                <th>Prayer</th>
+                                <th>Adhan Time</th>
+                                <th>Iqama Time</th>
                             </tr>
-                        </thead> --}}
+                        </thead>
                             <tbody>
                                 @foreach ($prayerTimes as $prayerTime)
                                     <tr>
                                         <td>{{ $prayerTime->name }}</td>
-                                        <td>{{ $prayerTime->time }}</td>
+                                        <td>{{ $prayerTime->adhan_time }}</td>
+                                        <td>{{ $prayerTime->iqama_time }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 @endif
-                @if (setting('auto_prayer_time') == '1')
+                @if (setting('auto_prayer_time'))
                     <div class="col-md-6">
                         <div>
                             <h2 class="geolocation"></h2>
@@ -183,7 +185,7 @@
 
     @push('scripts')
         <script>
-            if ('{{ setting('auto_prayer_time') == '1' }}') {
+            if ('{{ setting('auto_prayer_time') }}') {
                 $(document).ready(function() {
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(function(position) {
@@ -214,18 +216,18 @@
                                         country: country,
                                         city: city,
                                     });
-                                    $('.prayer-times-arabic').prayerTimes({
-                                        arabic: true,
-                                        method: 4,
-                                        school: 1,
-                                        imsak: true,
-                                        sunrise: true,
-                                        sunset: true,
-                                        midnight: true,
-                                        militaryTime: false,
-                                        country: country,
-                                        city: city,
-                                    });
+                                    // $('.prayer-times-arabic').prayerTimes({
+                                    //     arabic: true,
+                                    //     method: 4,
+                                    //     school: 1,
+                                    //     imsak: true,
+                                    //     sunrise: true,
+                                    //     sunset: true,
+                                    //     midnight: true,
+                                    //     militaryTime: false,
+                                    //     country: country,
+                                    //     city: city,
+                                    // });
                                 },
                                 error: function(error) {
                                     console.log('Error:', error);
