@@ -33,6 +33,9 @@ class SettingController extends Controller
             'app_logo'             => 'nullable|image|mimes:png|max:300',
             'app_nav_logo'         => 'nullable|image|mimes:png|max:80',
             'prayer_time_location' => 'nullable',
+            'phone'                => 'nullable',
+            'address'              => 'nullable|string',
+            'email'                => 'nullable|email',
         ]);
 
         if ($request->prayer_time && $request->prayer_time == 'custom') {

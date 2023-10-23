@@ -155,7 +155,7 @@
             <div class="parent-icon">
                 <i class="fa-solid fa-address-card"></i>
             </div>
-            <div class="menu-title">Contact</div>
+            <div class="menu-title">Contact Mail</div>
         </a>
     </li>
 
@@ -171,7 +171,7 @@
         <ul>
             <li class="{{ activeNav('admin.setting.*') }}">
                 <a href="{{ route('admin.setting.index') }}">
-                    <ion-icon name="ellipse-outline"></ion-icon>App Setting
+                    <ion-icon name="ellipse-outline"></ion-icon>Website Setting
                 </a>
             </li>
             <li class="{{ activeNav('admin.backup.*') }}">

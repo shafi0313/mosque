@@ -28,12 +28,9 @@
                     <thead class="bg-primary text-light">
                         <tr>
                             <th>SL</th>
-                            <th>Subject</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
                             <th>Email</th>
-                            <th>Phone</th>
-                            <th>Information</th>
+                            <th>Subject</th>
                             <th>Message</th>
                             <th class="no-sort" width="60px">Action</th>
                         </tr>
@@ -64,28 +61,16 @@
                             orderable: false,
                         },
                         {
+                            data: 'name',
+                            name: 'name'
+                        },
+                        {
                             data: 'subject',
                             name: 'subject'
                         },
                         {
-                            data: 'first_name',
-                            name: 'first_name'
-                        },
-                        {
-                            data: 'last_name',
-                            name: 'last_name'
-                        },
-                        {
                             data: 'email',
                             name: 'email'
-                        },
-                        {
-                            data: 'phone',
-                            name: 'phone'
-                        },
-                        {
-                            data: 'info',
-                            name: 'info'
                         },
                         {
                             data: 'message',
