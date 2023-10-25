@@ -3,7 +3,7 @@
 @section('content')
     <section id="contact-info">
         <div class="center">
-            <h2>How to Reach Us?</h2>
+            <h2>How to reach us?</h2>
             <p class="lead">You are most welcome to visit us personally or <a
                     href="{{ route('frontend.about.committeeMember') }}">contact us</a> through email or social media. You
                 are welcome to visit us personally or through email.</p>
@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-8 ">
                         <div class="title">
-                            <h2>Contact Form</h2>
+                            <h2>Online Inquiry</h2>
                         </div>
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -44,7 +44,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="">Name <span class="text-danger">*</span></label>
-                                <input type="text" name="name" class="form-control" placeholder="Name">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name">
                             </div>
                             <div class="form-group">
                                 <label for="">Subject <span class="text-danger">*</span></label>
@@ -52,11 +52,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Email <span class="text-danger">*</span></label>
-                                <input type="text" name="email" class="form-control" placeholder="Email">
+                                <input type="text" name="email" class="form-control" placeholder="Your Email">
                             </div>
                             <div class="form-group">
                                 <label for="">Message <span class="text-danger">*</span></label>
-                                <textarea name="message" rows="10" class="form-control" placeholder="Message"></textarea>
+                                <textarea name="message" rows="10" class="form-control" placeholder="Detail Message With Your Contact Number"></textarea>
                             </div>
                             <button type="submit" class="icon">SEND</button>
                         </form>

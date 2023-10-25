@@ -139,21 +139,21 @@
                 @if (setting('custom_prayer_time'))
 
                     <div class="col-md-6">
-                        <h2>Location: @setting('prayer_time_location')</h2>
+                        <h2  class="text-center">Location: @setting('prayer_time_location')</h2>
                         <table class="table table-hover">
                             <thead>
                             <tr style="background: #3742fa; color: white">
                                 <th>Prayer</th>
-                                <th>Adhan Time</th>
-                                <th>Iqama Time</th>
+                                <th class="text-center">Adhan Time</th>
+                                <th class="text-center">Iqama Time</th>
                             </tr>
                         </thead>
                             <tbody>
                                 @foreach ($prayerTimes as $prayerTime)
                                     <tr>
                                         <td>{{ $prayerTime->name }}</td>
-                                        <td>{{ $prayerTime->adhan_time }}</td>
-                                        <td>{{ $prayerTime->iqama_time }}</td>
+                                        <td class="text-center">{{ $prayerTime->adhan_time }}</td>
+                                        <td class="text-center">{{ $prayerTime->iqama_time }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
