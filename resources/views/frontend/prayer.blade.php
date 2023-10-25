@@ -135,14 +135,14 @@
     </style>
     <section id="contact-info">
         <div class="container">
-            <div class="row">
+            <div class="row" style="display: flex; justify-content: center;">
                 @if (setting('custom_prayer_time'))
 
                     <div class="col-md-6">
                         <h2>Location: @setting('prayer_time_location')</h2>
-                        <table class="table">
+                        <table class="table table-hover">
                             <thead>
-                            <tr>
+                            <tr style="background: #3742fa; color: white">
                                 <th>Prayer</th>
                                 <th>Adhan Time</th>
                                 <th>Iqama Time</th>
