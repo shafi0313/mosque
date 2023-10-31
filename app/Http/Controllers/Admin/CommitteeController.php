@@ -116,14 +116,14 @@ class CommitteeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Committee $committee)
+    public function destroy(Committee $committee_member)
     {
         try {
-            $checkPath =  public_path('images/committee/' . $committee->image);
+            $checkPath =  public_path('images/committee/' . $committee_member->image);
             if (file_exists($checkPath)) {
                 unlink($checkPath);
             }
-            $committee->delete();
+            $committee_member->delete();
             return response()->json(['message' => 'The information has been deleted'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
